@@ -1,4 +1,15 @@
 {
+  "data-galaxy": {
+    "gpuMs": [
+      {
+        "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+        "deviceClass": "unclassified",
+        "method": "marginal",
+        "ms": 0.66
+      }
+    ],
+    "bundleKb": 30.7
+  },
   "deep-field": {
     "gpuMs": [
       {
@@ -8,7 +19,18 @@
         "ms": 0.94
       }
     ],
-    "bundleKb": 42.9
+    "bundleKb": 43.2
+  },
+  "galaxy-collision": {
+    "gpuMs": [
+      {
+        "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+        "deviceClass": "unclassified",
+        "method": "marginal",
+        "ms": 0.83
+      }
+    ],
+    "bundleKb": 25.7
   },
   "hello": {
     "gpuMs": [
@@ -21,6 +43,28 @@
     ],
     "bundleKb": 24.2
   },
+  "nebula": {
+    "gpuMs": [
+      {
+        "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+        "deviceClass": "unclassified",
+        "method": "marginal",
+        "ms": 0.33
+      }
+    ],
+    "bundleKb": 42.2
+  },
+  "nebula-volume": {
+    "gpuMs": [
+      {
+        "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+        "deviceClass": "unclassified",
+        "method": "marginal",
+        "ms": 1.9
+      }
+    ],
+    "bundleKb": 48.2
+  },
   "real-sky": {
     "gpuMs": [
       {
@@ -30,7 +74,18 @@
         "ms": 0.79
       }
     ],
-    "bundleKb": 92.9
+    "bundleKb": 93
+  },
+  "spiral-galaxy": {
+    "gpuMs": [
+      {
+        "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+        "deviceClass": "unclassified",
+        "method": "marginal",
+        "ms": 1.92
+      }
+    ],
+    "bundleKb": 27.5
   },
   "star-splat": {
     "gpuMs": [
@@ -41,7 +96,7 @@
         "ms": 0.17
       }
     ],
-    "bundleKb": 33.1
+    "bundleKb": 33.2
   },
   "star-trails": {
     "gpuMs": [
@@ -52,6 +107,6 @@
         "ms": 0.17
       }
     ],
-    "bundleKb": 33.3
+    "bundleKb": 33.4
   }
 }

@@ -40,4 +40,12 @@ export const STUDY_SWEEPS: Readonly<Record<string, readonly StudyConfig[]>> = {
     ...sweep('star-trails', 'dose', [0.35, 1]),
     ...sweep('real-sky', 'limit', [4, 6.5, 8]),
   ],
+  '3': [
+    // 3.4: the volume's march at each resolution and step count.
+    ...sweep('nebula-volume', 'resolution', ['full', 'half', 'quarter']),
+    ...sweep('nebula-volume', 'steps', [24, 48, 96]),
+    // 3.5: the galaxy as its star count rises; 3.6: the collision's stars.
+    ...sweep('spiral-galaxy', 'dose', [0.1, 0.35, 1]),
+    ...sweep('galaxy-collision', 'dose', [0.35, 1]),
+  ],
 };

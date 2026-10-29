@@ -29,13 +29,18 @@ node scripts/pack-bsc5.mjs path/to/bsc5.dat   # repack the Bright Star Catalogue
 
 ## Effects
 
-| Id            | What                                                                                                             | Tier |
-| ------------- | ---------------------------------------------------------------------------------------------------------------- | ---- |
-| `hello`       | The smallest effect: a few hundred stars drifting slowly, each a naive fixed disc, one instanced draw            | A    |
-| `star-splat`  | The star spot laid out: colour by temperature, light by magnitude, Hubble and JWST spikes, over a drifting field | A    |
-| `deep-field`  | A starfield that never shimmers: four parallax layers from the sky's statistics over a baked emission nebula     | A    |
-| `star-trails` | A long exposure facing the pole: every star's arc at the exposure's length, in closed form, over a skyline       | A    |
-| `real-sky`    | The sky above you tonight: the Bright Star Catalogue for your time zone's city, twinkling near the horizon       | A    |
+| Id                 | What                                                                                                             | Tier |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------- | ---- |
+| `hello`            | The smallest effect: a few hundred stars drifting slowly, each a naive fixed disc, one instanced draw            | A    |
+| `star-splat`       | The star spot laid out: colour by temperature, light by magnitude, Hubble and JWST spikes, over a drifting field | A    |
+| `deep-field`       | A starfield that never shimmers: four parallax layers from the sky's statistics over a baked emission nebula     | A    |
+| `star-trails`      | A long exposure facing the pole: every star's arc at the exposure's length, in closed form, over a skyline       | A    |
+| `real-sky`         | The sky above you tonight: the Bright Star Catalogue for your time zone's city, twinkling near the horizon       | A    |
+| `nebula`           | An emission nebula in three parallax layers, in its emission lines, with dust that hides the stars behind        | A    |
+| `nebula-volume`    | A ray-marched nebula turning slowly, lit by the hot stars inside it                                              | B    |
+| `spiral-galaxy`    | The density wave: stars on turning ellipses, arms that hold while the stars move through them                    | B    |
+| `galaxy-collision` | Two discs passing on a parabola, throwing tidal tails (Toomre and Toomre), in compute                            | A    |
+| `data-galaxy`      | A page's data as a galaxy, clusters as arms; hover picks a point and fires `sr-pick`                             | A    |
 
 ## Layout
 
@@ -46,6 +51,8 @@ src/gpu/points.ts, points/  Moon Temple's energy-conserving point layer: a point
 src/gpu/optics/             aperture shapes and their areas, for the point layer
 src/gpu/glare/              analytic diffraction spikes, each carrying its share of the light
 src/gpu/emission/           the blackbody fit and its lookup table (Fire Temple's), for star colours
+src/gpu/nebula/             emission lines as the eye sees them, and the Hubble and HOO palettes
+src/gpu/volume/             Fire Temple's emission-absorption ray-march kernel (with src/wgsl/volume.wgsl)
 src/gpu/safety/             dose, the pattern analyser, motion estimate, colour caps and the start gate's rules
 src/gpu/colour/             OKLab and OKLCH, palettes, Display P3
 src/effects/<id>/           meta.ts, index.ts, shaders, notes.md, poster.webp

@@ -91,6 +91,11 @@ These findings shape this plan, so they need not be rediscovered.
 - **Long star trails are a regular pattern.** Concentric arcs round a pole are rings of light and dark, and past about 28° of arc the pattern analyser reads them as stripes, however few the stars (2.5). Under two hours of sky is the safe exposure; longer is gated.
 - **A real sky costs about 55 kB.** The Bright Star Catalogue at 6 bytes a star is 57.8 kB gzipped in the effect, against about 2 kB of code for a procedural field (2.6).
 - **Precession is visible at page scale.** 26 years of it moves the stars by 0.36°, more than a star spot in a 100° view at 1080p, so the catalogue is precessed at load.
+- **False colour needs its lines weighted.** Hα outshines the other lines many times over, so a Hubble-palette nebula drawn from the gas's own strengths is green; the published images stretch each line to fill its channel, and so must an effect (3.1).
+- **A spiral's arms are where the Jacobian is smallest.** Ellipses turned with their size crowd where A sin 2e + B cos 2e is least, not at their major axes' ends; populations born in the arms are placed there (3.5).
+- **Absorbers crowd as well as stars.** Dust placed on the arms piles up as the stars do and goes opaque; each smudge must be faint, and its quad cut short, since dust was most of the galaxy's cost (3.5).
+- **A volume nebula is Tier B at half resolution.** 6.4 ms full, 2.1 half, 0.9 quarter at 48 steps on the M1 Max (3.4).
+- **Spinning discs count as whole-field rotation**, and set the collision's pace (3.6).
 - **Twinkling is the air's, and grows with airmass.** Overhead a star barely flickers; a few degrees up it swings by most of its light, faster, and bright ones flash colours (2.8).
 
 ## Overlaps and who owns what
@@ -264,13 +269,33 @@ Stars are points, and getting points right is the whole problem. Everything late
 
 ## Epic 3 — Nebulae and galaxies
 
-- [ ] **3.1 Emission-line colour** [—] (S) — nebula colour by emission line: hydrogen-alpha 656 nm, oxygen III 501 nm and sulphur II 672 nm, mapped to RGB as the eye sees them, or to the false-colour "Hubble palette" (S II red, H-alpha green, O III blue). A palette type in the shell's palette editor.
-- [ ] **3.2 `nebula`** [A] (M) — a flat nebula: layers of domain-warped noise as emission in 3.1's lines, multiplied by a separate dust field that absorbs, with parallax between the layers and 2.1's stars between them. Cached where still. A hero background.
-- [ ] **3.3 Volume kernel** [—] (S) — Fire Temple's emission–absorption march (`src/gpu/volume/`, `volume.wgsl`) ported: reduced resolution, blue-noise jitter, temporal reprojection. A test checks that a uniform slab's transmittance matches Beer–Lambert.
-- [ ] **3.4 `nebula-volume`** [B] (M) — a ray-marched nebula through 3D noise in 3.1's lines with dust, turned slowly or by the pointer, with embedded stars that light the gas near them. Tier B at reduced resolution or C at full; both measured.
-- [ ] **3.5 `spiral-galaxy`** [B] (M) — the density wave: stars on ellipses whose orientation turns with radius, so arms appear where the ellipses crowd and hold while every star moves. A bulge, dust lanes as absorption along the inner edge of the arms, and pink H II regions along them. Stars drawn by 2.4's chosen method; the arms' pattern speed and the stars' orbital speeds both shown. After Lin and Shu, and Ingo Berg's write-up.
-- [ ] **3.6 `galaxy-collision`** [C] (M) — two of 3.5's discs as initial conditions for hologpu's `n-body`: tidal tails and bridges as they pass. A showpiece; measured for how few bodies still read.
-- [ ] **3.7 `data-galaxy`** [B] (M) — thousands of a page's own data points (an embedding, a user base) drawn as a galaxy: each point a star, its cluster an arm, its value its brightness, with hover picking a point. The family's most practical effect for product pages.
+- [x] **3.1 Emission-line colour** [—] (S) — nebula colour by emission line: hydrogen-alpha 656 nm, oxygen III 501 nm and sulphur II 672 nm, mapped to RGB as the eye sees them, or to the false-colour "Hubble palette" (S II red, H-alpha green, O III blue). A palette type in the shell's palette editor.
+
+  _`src/gpu/nebula/lines.ts`: S II 672, Hα 656, O III 501 and Hβ 486 nm as the eye sees them, each wavelength's colour from the CIE colour-matching functions taken into sRGB in OKLCH at its own hue (clipping the negative channel first had turned 620 nm into the same pure red as 680); the Hubble palette (S II, Hα, O III to red, green, blue) and the two-line HOO palette. The false-colour palettes weight the faint lines up and hydrogen down, as the published images stretch each line to its own channel; without that a Hubble-palette nebula is green. `tests/lines.test.ts` checks the hues. Not done: a line palette in the shell's palette editor; effects take it as a `palette` parameter._
+
+- [x] **3.2 `nebula`** [A] (M) — a flat nebula: layers of domain-warped noise as emission in 3.1's lines, multiplied by a separate dust field that absorbs, with parallax between the layers and 2.1's stars between them. Cached where still. A hero background.
+
+  _`nebula`: three layers baked once each (a buffer per layer, as uniforms written between passes arrive with their last value), composited far to near as behind × transmittance + light, with a share of 5 000 stars before each layer so nearer dust dims them; the near layer mostly dust lanes and ridged pillars. 0.3 ms on Dawn, 1.2 ms in Chrome: Tier A._
+
+- [x] **3.3 Volume kernel** [—] (S) — Fire Temple's emission–absorption march (`src/gpu/volume/`, `volume.wgsl`) ported: reduced resolution, blue-noise jitter, temporal reprojection. A test checks that a uniform slab's transmittance matches Beer–Lambert.
+
+  _Fire Temple's `volume.wgsl` and `src/gpu/volume/` (reduced-resolution march, depth-aware upsample, blue noise) copied in. Its own test needs helpers this family lacks, so `tests/volume.test.ts` is new: a uniform slab marched in 1 to 200 steps keeps the Beer–Lambert transmittance and the closed-form glow, and the ray-box test finds the faces._
+
+- [x] **3.4 `nebula-volume`** [B] (M) — a ray-marched nebula through 3D noise in 3.1's lines with dust, turned slowly or by the pointer, with embedded stars that light the gas near them. Tier B at reduced resolution or C at full; both measured.
+
+  _`nebula-volume`: 3D noise baked once into a 96³ texture by compute; a march through a soft ball in a box, gas in 3.1's lines brightest near five hot stars inside it (light falling with the square of distance), dust absorbing; jitter moved every frame and averaged over about four frames. Measured on Dawn at 48 steps: 6.4 ms a frame at full resolution, 2.1 at half and 0.9 at a quarter, so Tier B at half (the default) and C at full, as the story guessed. The gas is soft at 96³; finer would need a bigger texture or detail noise._
+
+- [x] **3.5 `spiral-galaxy`** [B] (M) — the density wave: stars on ellipses whose orientation turns with radius, so arms appear where the ellipses crowd and hold while every star moves. A bulge, dust lanes as absorption along the inner edge of the arms, and pink H II regions along them. Stars drawn by 2.4's chosen method; the arms' pattern speed and the stars' orbital speeds both shown. After Lin and Shu, and Ingo Berg's write-up.
+
+  _`spiral-galaxy`: 72 000 stars (120 000 at full dose) on ellipses turned by `twist` × size, positions closed-form in the vertex shader; the crowding phase worked out from the Jacobian of (size, phase) to position, A sin 2e + B cos 2e + C, smallest where 2e = atan2(−A, −B), which is where young stars, H II regions and dust are held (at the ellipses' major-axis ends they had sat on a ring at the rim). Dust is soft absorbing smudges drawn with a multiplying blend; it crowds as the stars do, so each is faint. A bulge, a smooth bulge and disc glow, and tracer stars that show stars moving through arms that hold. The dust was most of the cost (4.6 ms); cut at 2.2 of its widths and smaller, about 2 ms on Dawn, 3.7 in Chrome under load: Tier B._
+
+- [x] **3.6 `galaxy-collision`** [A] (M) — two of 3.5's discs as initial conditions for hologpu's `n-body`: tidal tails and bridges as they pass. A showpiece; measured for how few bodies still read.
+
+  _`galaxy-collision`: the restricted three-body problem (Toomre and Toomre): two cores on a parabolic orbit integrated by leapfrog on the CPU, each with 12 000 test stars on circular orbits in the softened gravity, integrated in one compute dispatch a frame with every sub-step's core positions in a buffer. Prograde discs throw long tidal tails and a bridge; a retrograde one hardly changes. 0.8 ms on Dawn, 1.8 ms in Chrome: Tier A by budget, where the story guessed C; it needs compute. The discs' spin read as whole-field rotation over the 5° a second cap until the clock slowed. Not done: reusing hologpu's `n-body`, which a restricted problem does not need._
+
+- [x] **3.7 `data-galaxy`** [A] (M) — thousands of a page's own data points (an embedding, a user base) drawn as a galaxy: each point a star, its cluster an arm, its value its brightness, with hover picking a point. The family's most practical effect for product pages.
+
+  _`data-galaxy`: points as stars, clusters as arms in OKLCH hues at one lightness, values as brightness, turning slowly; positions on the CPU so the pointer can pick the nearest within 14 CSS pixels, which lights it and its cluster and fires a bubbling `sr-pick` event with the point (checked in the browser: 29 picks over a sweep). A made-up data set in the gallery; a page's own comes through the library entry (9.1). 0.7 ms on Dawn, 2.9 in Chrome under load: Tier A provisionally._
 
 ## Epic 4 — Gravity and orbits
 

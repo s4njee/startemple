@@ -63,7 +63,7 @@
       "title": "Real sky",
       "summary": "The sky above you tonight: the 9 096 stars of the Yale Bright Star Catalogue where they are for your time zone's city at this moment, turning in a gentle time-lapse over a dark skyline. Each star's altitude comes from the sidereal time and your latitude on the GPU; low stars are dimmed by the air and twinkle harder and faster, and bright ones flash colours, as they do near the horizon.",
       "epic": "2",
-      "tier": "B",
+      "tier": "A",
       "tags": [
         "stars",
         "catalogue",
@@ -146,6 +146,156 @@
         "useCases": [
           "A slow, calm night hero",
           "An astronomy or photography page"
+        ]
+      }
+    },
+    {
+      "id": "data-galaxy",
+      "title": "Data galaxy",
+      "summary": "A page's own data drawn as a galaxy: every point a star, every cluster an arm in its own colour, every value a brightness, turning slowly. Point at a star to pick it: it lights up, its cluster brightens round it, and the canvas fires an `sr-pick` event with the point's label and value for the page to show.",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "galaxy",
+        "data",
+        "interactive",
+        "product"
+      ],
+      "status": "demo",
+      "poster": "src/effects/data-galaxy/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the galaxy, or the data as a plain chart.",
+        "useCases": [
+          "A product page: \"our community\"",
+          "An embedding or clustering, explored by hover"
+        ]
+      }
+    },
+    {
+      "id": "galaxy-collision",
+      "title": "Galaxy collision",
+      "summary": "Two disc galaxies passing each other on a parabolic orbit, as Toomre and Toomre showed in 1972: each a massive core with 12 000 stars round it, which feel both cores' gravity, so the close pass throws out long tidal tails and a bridge between them. Integrated in compute, sub-step by sub-step, over a minute's passage; then it begins again.",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "galaxy",
+        "gravity",
+        "compute",
+        "showpiece"
+      ],
+      "status": "demo",
+      "poster": "src/effects/galaxy-collision/poster.webp",
+      "scorecard": {
+        "compute": true,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the tails at their longest.",
+        "useCases": [
+          "A science showpiece",
+          "A \"merging\" or \"two worlds\" hero"
+        ]
+      }
+    },
+    {
+      "id": "nebula",
+      "title": "Nebula",
+      "summary": "An emission nebula in three layers, coloured by the lines its gas glows in: hydrogen-alpha red, oxygen teal where the gas is hottest, sulphur at its edges, as the eye sees them or in the Hubble palette. The layers move apart with the pointer and scroll, stars sit between them, and the near layer is dark dust that hides the stars and glow behind it. Each layer is drawn once and only moved.",
+      "epic": "3",
+      "tier": "A",
+      "tags": [
+        "nebula",
+        "emission lines",
+        "parallax",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/nebula/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the nebula.",
+        "useCases": [
+          "A space hero behind a headline",
+          "A science or astronomy page background"
+        ]
+      }
+    },
+    {
+      "id": "nebula-volume",
+      "title": "Nebula volume",
+      "summary": "An emission nebula as a volume, turning slowly: a ray march through 3D noise, its gas glowing in sulphur, hydrogen and oxygen lines brightest near the hot stars inside it, its dust lanes absorbing the glow and the stars behind. Marched at half resolution with jitter averaged over frames, on Fire Temple’s emission-absorption kernel.",
+      "epic": "3",
+      "tier": "B",
+      "tags": [
+        "nebula",
+        "volume",
+        "ray march",
+        "emission lines"
+      ],
+      "status": "demo",
+      "poster": "src/effects/nebula-volume/poster.webp",
+      "scorecard": {
+        "compute": true,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the nebula, or the flat nebula.",
+        "useCases": [
+          "A science showpiece",
+          "A slow, deep hero background"
+        ]
+      }
+    },
+    {
+      "id": "spiral-galaxy",
+      "title": "Spiral galaxy",
+      "summary": "A spiral galaxy by the density wave: every star on an ellipse whose orientation turns with its size, so the ellipses crowd into two arms that keep their shape while every star moves through them. A golden bulge, blue young stars and pink H II regions along the arms, dust lanes just inside them, and a dozen tracer stars to watch the stars outrun the arms.",
+      "epic": "3",
+      "tier": "B",
+      "tags": [
+        "galaxy",
+        "density wave",
+        "stars",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/spiral-galaxy/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the galaxy.",
+        "useCases": [
+          "A science or space hero",
+          "A \"data as a galaxy\" starting point"
         ]
       }
     }
