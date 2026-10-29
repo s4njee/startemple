@@ -1,0 +1,35 @@
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+  "adapter": {
+    "vendor": "apple",
+    "architecture": "metal-3",
+    "description": ""
+  },
+  "features": {
+    "float32-filterable": true,
+    "float32-blendable": true,
+    "timestamp-query": true,
+    "shader-f16": true,
+    "subgroups": true,
+    "rg11b10ufloat-renderable": true,
+    "clip-distances": true
+  },
+  "limits": {
+    "maxBufferSize": 4294967292,
+    "maxStorageBufferBindingSize": 4294967292,
+    "maxComputeWorkgroupStorageSize": 32768,
+    "maxComputeInvocationsPerWorkgroup": 1024,
+    "maxComputeWorkgroupsPerDimension": 65535,
+    "maxStorageTexturesPerShaderStage": 8
+  },
+  "atomics": [256, 256, 256, 256],
+  "filterBinds": true,
+  "errors": [],
+  "f32": {
+    "note": "gap between neighbouring f32 values, metres",
+    "earthRadius": 0.5,
+    "moonDistance": 32,
+    "oneAu": 16384,
+    "neptune": 524288
+  }
+}

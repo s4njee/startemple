@@ -1,0 +1,610 @@
+{
+  "epic": "2",
+  "measuredAt": "2026-10-29T07:43:48.784Z",
+  "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+  "deviceClass": "unclassified",
+  "adapter": {
+    "vendor": "apple",
+    "architecture": "metal-3",
+    "device": "apple-m1-max",
+    "description": "Metal driver on macOS Version 26.6.2 (Build 25G83)"
+  },
+  "runtime": "Dawn (node webgpu bindings)",
+  "method": {
+    "metric": "GPU timestamps: frame span (first pass start to last pass end) and marginal cost per extra frame",
+    "warmupFrames": 12,
+    "rounds": 11,
+    "repeats": 4
+  },
+  "note": "Only this adapter was measured. spanMs includes the timing floor (see the \"(floor)\" rows); slopeMs is the cost of one more frame of the same work and is the number to compare by. A slope at or below zero means the work is below what this method can resolve.",
+  "rows": [
+    {
+      "effect": "(floor)",
+      "config": "one constant-colour pass",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.065536,
+      "slopeMs": 0.065536,
+      "slopeMinMs": -0.065536,
+      "slopeMaxMs": 0.5024426666666667,
+      "passes": 1,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(tail)",
+      "config": "constant scene + bloom + output",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.720896,
+      "slopeMs": 0.7427413333333334,
+      "slopeMinMs": 0.06553599999999997,
+      "slopeMaxMs": 1.5728639999999998,
+      "passes": 11,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "default",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.458752,
+      "slopeMs": 1.0267306666666667,
+      "slopeMinMs": -0.131072,
+      "slopeMaxMs": 1.2888746666666666,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset deep field",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.262144,
+      "slopeMs": 0.2184533333333333,
+      "slopeMinMs": -0.13107199999999997,
+      "slopeMaxMs": 0.6116693333333333,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset stars only",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.524288,
+      "slopeMs": 0.8082773333333334,
+      "slopeMinMs": 0.131072,
+      "slopeMaxMs": 1.31072,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset hubble palette",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.524288,
+      "slopeMs": 0.393216,
+      "slopeMinMs": 0.021845333333333345,
+      "slopeMaxMs": 1.0704213333333332,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset dense and still",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.458752,
+      "slopeMs": 0.15291733333333332,
+      "slopeMinMs": -0.021845333333333345,
+      "slopeMaxMs": 0.524288,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "default",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.393216,
+      "slopeMs": 0.2184533333333333,
+      "slopeMinMs": -0.04369066666666662,
+      "slopeMaxMs": 1.1141120000000002,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "preset as the eye sees",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.458752,
+      "slopeMs": 0.2184533333333333,
+      "slopeMinMs": -0.15291733333333335,
+      "slopeMaxMs": 1.048576,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "preset full colour",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.393216,
+      "slopeMs": 0.589824,
+      "slopeMinMs": -0.06553600000000004,
+      "slopeMaxMs": 1.3544106666666667,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "preset hubble",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.458752,
+      "slopeMs": 0.7208960000000001,
+      "slopeMinMs": -0.26214399999999993,
+      "slopeMaxMs": 1.2670293333333331,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "preset disc spots",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.524288,
+      "slopeMs": 0.4369066666666666,
+      "slopeMinMs": 0.15291733333333327,
+      "slopeMaxMs": 0.9830399999999999,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "dose=0.1",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "dose": 0.1
+      },
+      "spanMs": 0.262144,
+      "slopeMs": 0.15291733333333335,
+      "slopeMinMs": -0.10922666666666665,
+      "slopeMaxMs": 0.4369066666666667,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "dose=0.35",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "dose": 0.35
+      },
+      "spanMs": 0.458752,
+      "slopeMs": 0.98304,
+      "slopeMinMs": -0.1747626666666667,
+      "slopeMaxMs": 1.3544106666666667,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "dose=0.7",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "dose": 0.7
+      },
+      "spanMs": 0.393216,
+      "slopeMs": 0.15291733333333332,
+      "slopeMinMs": -0.08738133333333335,
+      "slopeMaxMs": 0.45875200000000005,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "dose=1",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "dose": 1
+      },
+      "spanMs": 2.228224,
+      "slopeMs": -0.1747626666666667,
+      "slopeMinMs": -0.19660799999999998,
+      "slopeMaxMs": 0.21845333333333336,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "nebula=0",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "nebula": 0
+      },
+      "spanMs": 0.393216,
+      "slopeMs": 0.2184533333333333,
+      "slopeMinMs": -0.13107199999999994,
+      "slopeMaxMs": 0.6116693333333334,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "spot=gaussian",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "spot": "gaussian"
+      },
+      "spanMs": 0.458752,
+      "slopeMs": 0.6335146666666667,
+      "slopeMinMs": -0.3495253333333334,
+      "slopeMaxMs": 1.2888746666666668,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "spot=disc",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "spot": "disc"
+      },
+      "spanMs": 0.458752,
+      "slopeMs": 0.9393493333333334,
+      "slopeMinMs": -0.1747626666666667,
+      "slopeMaxMs": 1.2451839999999998,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "halo=0",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "halo": 0
+      },
+      "spanMs": 0.458752,
+      "slopeMs": 0.4369066666666666,
+      "slopeMinMs": -0.06553600000000004,
+      "slopeMaxMs": 1.463637333333333,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "halo=0.05",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "halo": 0.05
+      },
+      "spanMs": 0.458752,
+      "slopeMs": 0.4369066666666666,
+      "slopeMinMs": -0.2184533333333333,
+      "slopeMaxMs": 1.4636373333333335,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "halo=0.2",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "halo": 0.2
+      },
+      "spanMs": 0.458752,
+      "slopeMs": 0.32768,
+      "slopeMinMs": -0.2184533333333334,
+      "slopeMaxMs": 1.0048853333333332,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(floor)",
+      "config": "one constant-colour pass",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.065536,
+      "slopeMs": 0.065536,
+      "slopeMinMs": -0.021845333333333345,
+      "slopeMaxMs": 0.30583466666666664,
+      "passes": 1,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "(tail)",
+      "config": "constant scene + bloom + output",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.524288,
+      "slopeMs": 0.3495253333333333,
+      "slopeMinMs": -0.06553600000000004,
+      "slopeMaxMs": 1.2014933333333333,
+      "passes": 9,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "default",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.720896,
+      "slopeMs": 0.08738133333333331,
+      "slopeMinMs": -0.28398933333333337,
+      "slopeMaxMs": 0.8738133333333332,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset deep field",
+      "width": 960,
+      "height": 540,
+      "spanMs": 1.114112,
+      "slopeMs": 0.021845333333333345,
+      "slopeMinMs": -0.21845333333333336,
+      "slopeMaxMs": 1.1578026666666668,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset stars only",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.262144,
+      "slopeMs": 0.1747626666666667,
+      "slopeMinMs": -0.3495253333333334,
+      "slopeMaxMs": 0.917504,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset hubble palette",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.32768,
+      "slopeMs": 0.15291733333333332,
+      "slopeMinMs": -0.28398933333333337,
+      "slopeMaxMs": 1.114112,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset dense and still",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.32768,
+      "slopeMs": 0.24029866666666666,
+      "slopeMinMs": -0.2402986666666667,
+      "slopeMaxMs": 1.1578026666666668,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "default",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.851968,
+      "slopeMs": 0.10922666666666668,
+      "slopeMinMs": -0.28398933333333337,
+      "slopeMaxMs": 0.7208960000000001,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "preset as the eye sees",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.32768,
+      "slopeMs": 0.1747626666666667,
+      "slopeMinMs": -0.10922666666666665,
+      "slopeMaxMs": 0.7427413333333334,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "preset full colour",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.524288,
+      "slopeMs": 0.17476266666666665,
+      "slopeMinMs": -0.08738133333333331,
+      "slopeMaxMs": 0.9393493333333334,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "preset hubble",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.524288,
+      "slopeMs": 0.08738133333333335,
+      "slopeMinMs": -0.30583466666666664,
+      "slopeMaxMs": 0.786432,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "preset disc spots",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.524288,
+      "slopeMs": 0.5679786666666666,
+      "slopeMinMs": 0,
+      "slopeMaxMs": 1.4199466666666665,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "dose=0.1",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "dose": 0.1
+      },
+      "spanMs": 0.32768,
+      "slopeMs": 0.65536,
+      "slopeMinMs": -0.17476266666666665,
+      "slopeMaxMs": 0.8956586666666667,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "dose=0.35",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "dose": 0.35
+      },
+      "spanMs": 0.65536,
+      "slopeMs": 0.02184533333333331,
+      "slopeMinMs": -0.3713706666666667,
+      "slopeMaxMs": 1.0267306666666667,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "dose=0.7",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "dose": 0.7
+      },
+      "spanMs": 0.393216,
+      "slopeMs": 0.17476266666666662,
+      "slopeMinMs": -0.5024426666666667,
+      "slopeMaxMs": 1.0267306666666667,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "dose=1",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "dose": 1
+      },
+      "spanMs": 0.393216,
+      "slopeMs": 0.7864319999999999,
+      "slopeMinMs": 0.45875200000000005,
+      "slopeMaxMs": 1.2014933333333333,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "nebula=0",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "nebula": 0
+      },
+      "spanMs": 0.917504,
+      "slopeMs": -0.043690666666666655,
+      "slopeMinMs": -0.15291733333333335,
+      "slopeMaxMs": 1.114112,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "spot=gaussian",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "spot": "gaussian"
+      },
+      "spanMs": 0.458752,
+      "slopeMs": 0.15291733333333332,
+      "slopeMinMs": -0.41506133333333334,
+      "slopeMaxMs": 1.2670293333333333,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "spot=disc",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "spot": "disc"
+      },
+      "spanMs": 1.376256,
+      "slopeMs": 0.08738133333333324,
+      "slopeMinMs": -0.30583466666666664,
+      "slopeMaxMs": 0.786432,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "halo=0",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "halo": 0
+      },
+      "spanMs": 0.393216,
+      "slopeMs": 0.15291733333333332,
+      "slopeMinMs": -0.1747626666666667,
+      "slopeMaxMs": 1.0922666666666665,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "halo=0.05",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "halo": 0.05
+      },
+      "spanMs": 0.786432,
+      "slopeMs": 0,
+      "slopeMinMs": -0.524288,
+      "slopeMaxMs": 0.6990506666666666,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-splat",
+      "config": "halo=0.2",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "halo": 0.2
+      },
+      "spanMs": 0.262144,
+      "slopeMs": 0.17476266666666665,
+      "slopeMinMs": 0,
+      "slopeMaxMs": 1.114112,
+      "passes": 2,
+      "metric": "gpu-timestamp"
+    }
+  ]
+}

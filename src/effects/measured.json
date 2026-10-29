@@ -1,0 +1,35 @@
+{
+  "deep-field": {
+    "gpuMs": [
+      {
+        "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+        "deviceClass": "unclassified",
+        "method": "marginal",
+        "ms": 1.03
+      }
+    ],
+    "bundleKb": 42
+  },
+  "hello": {
+    "gpuMs": [
+      {
+        "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+        "deviceClass": "unclassified",
+        "method": "marginal",
+        "ms": 0.2
+      }
+    ],
+    "bundleKb": 25.4
+  },
+  "star-splat": {
+    "gpuMs": [
+      {
+        "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
+        "deviceClass": "unclassified",
+        "method": "marginal",
+        "ms": 0.22
+      }
+    ],
+    "bundleKb": 33.8
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "sigma": 0.8,
+  "accumMb": 24.8832,
+  "metric": "slope",
+  "rows": [
+    {
+      "count": 1000,
+      "quadsMs": 0.06553600000000001,
+      "splatGaussianMs": 0.45875200000000005,
+      "splatPixelMs": 0.24029866666666666,
+      "cpuFillMs": 0.17428320000000214,
+      "starBufferMb": 0.032
+    },
+    {
+      "count": 10000,
+      "quadsMs": 0.10922666666666665,
+      "splatGaussianMs": 0.6553599999999999,
+      "splatPixelMs": 0.17476266666666665,
+      "cpuFillMs": 1.107533199999989,
+      "starBufferMb": 0.32
+    },
+    {
+      "count": 100000,
+      "quadsMs": 0.4369066666666668,
+      "splatGaussianMs": 2.6651306666666663,
+      "splatPixelMs": 0.2184533333333333,
+      "cpuFillMs": 5.219499999999994,
+      "starBufferMb": 3.2
+    },
+    {
+      "count": 300000,
+      "quadsMs": 1.9442346666666666,
+      "splatGaussianMs": 7.471104,
+      "splatPixelMs": 0.3495253333333333,
+      "cpuFillMs": 15.134508199999981,
+      "starBufferMb": 9.6
+    },
+    {
+      "count": 1000000,
+      "quadsMs": 9.786709333333334,
+      "splatGaussianMs": 24.008021333333335,
+      "splatPixelMs": 0.851968,
+      "cpuFillMs": 49.35749159999996,
+      "starBufferMb": 32
+    }
+  ]
+}

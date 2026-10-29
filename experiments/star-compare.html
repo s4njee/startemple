@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stars four ways</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: #05050a;
+        color: #ecebf4;
+        font:
+          16px/1.5 system-ui,
+          sans-serif;
+      }
+      main {
+        position: relative;
+        z-index: 1;
+        padding: 12vh 10vw;
+        max-width: 40rem;
+      }
+      h1 {
+        font-size: 3rem;
+        margin: 0 0 1rem;
+      }
+      .sky {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      /* Box-shadow stars, the classic CSS starfield: per layer, one tiny element with a shadow per
+         star, two copies side by side, slid to the left on a loop. Three layers at three speeds. */
+      .shadow b {
+        position: absolute;
+        top: 0;
+        width: 1px;
+        height: 1px;
+        border-radius: 50%;
+        animation: slide linear infinite;
+        will-change: transform;
+      }
+      @keyframes slide {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(-100vw, 0, 0);
+        }
+      }
+      /* CSS keyframes of plain values, one element per star: the compositor runs them alone. */
+      .css i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        background: #fff;
+        animation: drift linear infinite;
+        will-change: transform;
+      }
+      @keyframes drift {
+        from {
+          transform: translate3d(100vw, 0, 0);
+        }
+        to {
+          transform: translate3d(-4px, 0, 0);
+        }
+      }
+      /* Elements moved from script every frame. */
+      .dom i {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        background: #fff;
+        will-change: transform;
+      }
+      canvas.sky {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Launch day</h1>
+      <p>
+        The page in front of the stars: some text, so each method is drawn behind something a site
+        would have. Story 2.7 compares ways to draw a drifting starfield by star count.
+      </p>
+    </main>
+    <script type="module" src="./star-compare.ts"></script>
+  </body>
+</html>

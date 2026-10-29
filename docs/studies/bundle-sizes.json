@@ -1,0 +1,80 @@
+{
+  "eager": {
+    "chunks": 6,
+    "raw": 15302,
+    "gzip": 7194
+  },
+  "effects": {
+    "deep-field": {
+      "chunks": 18,
+      "ownGzip": 3121,
+      "gzip": 43044,
+      "raw": 113566,
+      "files": [
+        "assets/aperture-FsKt1EIq.js",
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/deep-field-CIpDs838.js",
+        "assets/dose-B3LI8faG.js",
+        "assets/fbm-C42g5uzM.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/math-fT5w54uK.js",
+        "assets/nebula-B1JPgcA8.js",
+        "assets/noise-BHiu8YkL.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/stars-CfawmQcR.js",
+        "assets/tail-C3cqZyil.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-ci2WwWg0.js"
+      ],
+      "gzipKb": 42
+    },
+    "hello": {
+      "chunks": 13,
+      "ownGzip": 994,
+      "gzip": 26000,
+      "raw": 65882,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/dose-B3LI8faG.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/hello-ClSIfa_f.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/stars-Dizbyjhr.js",
+        "assets/tail-C3cqZyil.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-ci2WwWg0.js"
+      ],
+      "gzipKb": 25.4
+    },
+    "star-splat": {
+      "chunks": 13,
+      "ownGzip": 3772,
+      "gzip": 34615,
+      "raw": 87524,
+      "files": [
+        "assets/aperture-FsKt1EIq.js",
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/dose-B3LI8faG.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/profiler-Bi27xYp-.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/star-splat-ydPVdSzs.js",
+        "assets/stars-CfawmQcR.js",
+        "assets/tail-C3cqZyil.js",
+        "assets/thinfilm-Ci8F6ZWx.js",
+        "assets/types-ci2WwWg0.js"
+      ],
+      "gzipKb": 33.8
+    }
+  }
+}

@@ -1,0 +1,105 @@
+.sr-effect {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: var(--sr-space-5);
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: var(--sr-space-5);
+}
+
+.sr-effect__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-3);
+  min-width: 0;
+}
+
+.sr-effect__stage {
+  position: relative;
+  height: min(64vh, 720px);
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid var(--sr-border);
+  border-radius: var(--sr-radius-l);
+  /* The page colour, not a panel colour: a see-through effect is judged against this. */
+  background: var(--sr-bg);
+}
+
+.sr-effect__stage:fullscreen {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.sr-effect__hud {
+  position: absolute;
+  z-index: 2;
+  top: var(--sr-space-3);
+  left: var(--sr-space-3);
+}
+
+.sr-effect__hud:empty {
+  display: none;
+}
+
+.sr-effect__toolbar,
+.sr-effect__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sr-space-2);
+}
+
+.sr-effect__spacer {
+  flex: 1;
+}
+
+.sr-effect__tabpanel {
+  min-height: 240px;
+  padding: var(--sr-space-4) 0 var(--sr-space-6);
+}
+
+.sr-effect__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-5);
+  min-width: 0;
+}
+
+.sr-effect__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sr-space-3);
+}
+
+.sr-effect__title {
+  font-size: var(--sr-text-xl);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.sr-effect__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sr-space-2);
+}
+
+@media (max-width: 900px) {
+  .sr-effect {
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--sr-space-4);
+  }
+
+  /* Title first, then the effect, then its controls. */
+  .sr-effect__side {
+    display: contents;
+  }
+
+  .sr-effect__intro {
+    order: -1;
+  }
+
+  .sr-effect__stage {
+    height: 52vh;
+  }
+}

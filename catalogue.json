@@ -1,0 +1,91 @@
+{
+  "project": "startemple",
+  "effects": [
+    {
+      "id": "hello",
+      "title": "Hello",
+      "summary": "The smallest effect: a few hundred stars drifting slowly across a dark field, one instanced draw through the HDR tail. Each star is a naive fixed disc, the baseline the energy-conserving star spot is measured against. Every later effect starts from this shape.",
+      "epic": "1",
+      "tier": "A",
+      "tags": [
+        "scaffold",
+        "stars"
+      ],
+      "status": "demo",
+      "poster": "src/effects/hello/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the stars, or box-shadow stars in CSS.",
+        "useCases": [
+          "The template for new effects"
+        ]
+      }
+    },
+    {
+      "id": "deep-field",
+      "title": "Deep field",
+      "summary": "A starfield that never shimmers, over a flat nebula: four depth layers of stars from the sky's own magnitudes and colours, drifting slowly and shifting with the pointer and the page's scroll, in front of hydrogen-red and oxygen-teal gas crossed by dust lanes. Every star keeps its light wherever it sits between pixels; the nebula is drawn once and only moved.",
+      "epic": "2",
+      "tier": "A",
+      "tags": [
+        "stars",
+        "nebula",
+        "parallax",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/deep-field/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the field, or box-shadow stars in CSS over a gradient.",
+        "useCases": [
+          "A space hero behind a headline",
+          "A launch or science page background"
+        ]
+      }
+    },
+    {
+      "id": "star-splat",
+      "title": "Star splat",
+      "summary": "The family's building block, laid out: stars as points with a temperature and a magnitude. A row from 2 400 K to 40 000 K, coloured by Planck's law; a row of magnitudes 0 to 6, a hundred times dimmer at the end; diffraction spikes as a Hubble or a JWST image draws them; over a drifting field drawn from the sky's own statistics. Every star is a Gaussian integrated over each pixel, so it keeps its light and its look wherever it sits.",
+      "epic": "2",
+      "tier": "A",
+      "tags": [
+        "stars",
+        "building block",
+        "blackbody"
+      ],
+      "status": "demo",
+      "poster": "src/effects/star-splat/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the rows and the field.",
+        "useCases": [
+          "A reference for star colour and brightness",
+          "The spot every space effect draws"
+        ]
+      }
+    }
+  ]
+}
