@@ -1,80 +1,126 @@
 {
   "eager": {
-    "chunks": 6,
-    "raw": 15302,
-    "gzip": 7194
+    "chunks": 13,
+    "raw": 36118,
+    "gzip": 16831
   },
   "effects": {
     "deep-field": {
       "chunks": 18,
-      "ownGzip": 3121,
-      "gzip": 43044,
-      "raw": 113566,
+      "ownGzip": 3543,
+      "gzip": 43912,
+      "raw": 115843,
       "files": [
         "assets/aperture-FsKt1EIq.js",
         "assets/colour-caps-rW91Sa46.js",
-        "assets/deep-field-CIpDs838.js",
+        "assets/deep-field-DGpa55ni.js",
+        "assets/dose-B3LI8faG.js",
+        "assets/fbm-C42g5uzM.js",
+        "assets/flicker-DaWJrgQQ.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/math-fT5w54uK.js",
+        "assets/nebula-2s2RYvdM.js",
+        "assets/noise-BHiu8YkL.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/spot-1iotpas2.js",
+        "assets/stars-B2Md8RyP.js",
+        "assets/tail-B8YXf-sb.js",
+        "assets/thinfilm-Ci8F6ZWx.js"
+      ],
+      "gzipKb": 42.9
+    },
+    "hello": {
+      "chunks": 11,
+      "ownGzip": 994,
+      "gzip": 24820,
+      "raw": 63600,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/dose-B3LI8faG.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/hello-EhbeHDYE.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/stars-Dizbyjhr.js",
+        "assets/tail-B8YXf-sb.js",
+        "assets/thinfilm-Ci8F6ZWx.js"
+      ],
+      "gzipKb": 24.2
+    },
+    "real-sky": {
+      "chunks": 16,
+      "ownGzip": 59156,
+      "gzip": 95125,
+      "raw": 181381,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/dose-B3LI8faG.js",
+        "assets/fbm-C42g5uzM.js",
+        "assets/flicker-kwKU6Yb5.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/hash-bWx0F85T.js",
+        "assets/math-fT5w54uK.js",
+        "assets/noise-BHiu8YkL.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/real-sky-BjUCzpsS.js",
+        "assets/real-sky-CNmcXWTu.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/stars-B2Md8RyP.js",
+        "assets/tail-B8YXf-sb.js",
+        "assets/thinfilm-Ci8F6ZWx.js"
+      ],
+      "gzipKb": 92.9
+    },
+    "star-splat": {
+      "chunks": 12,
+      "ownGzip": 3773,
+      "gzip": 33850,
+      "raw": 85947,
+      "files": [
+        "assets/aperture-FsKt1EIq.js",
+        "assets/colour-caps-rW91Sa46.js",
+        "assets/dose-B3LI8faG.js",
+        "assets/fullscreen-BDXEFvdz.js",
+        "assets/gamut-COkJmrKM.js",
+        "assets/oklab-CS7oj3eq.js",
+        "assets/shader-xzRCRHTt.js",
+        "assets/spot-1iotpas2.js",
+        "assets/star-splat-BuaAs5CE.js",
+        "assets/stars-B2Md8RyP.js",
+        "assets/tail-B8YXf-sb.js",
+        "assets/thinfilm-Ci8F6ZWx.js"
+      ],
+      "gzipKb": 33.1
+    },
+    "star-trails": {
+      "chunks": 15,
+      "ownGzip": 1989,
+      "gzip": 34104,
+      "raw": 90877,
+      "files": [
+        "assets/colour-caps-rW91Sa46.js",
         "assets/dose-B3LI8faG.js",
         "assets/fbm-C42g5uzM.js",
         "assets/fullscreen-BDXEFvdz.js",
         "assets/gamut-COkJmrKM.js",
         "assets/hash-bWx0F85T.js",
         "assets/math-fT5w54uK.js",
-        "assets/nebula-B1JPgcA8.js",
         "assets/noise-BHiu8YkL.js",
         "assets/oklab-CS7oj3eq.js",
-        "assets/profiler-Bi27xYp-.js",
         "assets/shader-xzRCRHTt.js",
-        "assets/stars-CfawmQcR.js",
-        "assets/tail-C3cqZyil.js",
-        "assets/thinfilm-Ci8F6ZWx.js",
-        "assets/types-ci2WwWg0.js"
+        "assets/star-trails-Cfjb9qys.js",
+        "assets/star-trails-f1_BcAE_.js",
+        "assets/stars-B2Md8RyP.js",
+        "assets/tail-B8YXf-sb.js",
+        "assets/thinfilm-Ci8F6ZWx.js"
       ],
-      "gzipKb": 42
-    },
-    "hello": {
-      "chunks": 13,
-      "ownGzip": 994,
-      "gzip": 26000,
-      "raw": 65882,
-      "files": [
-        "assets/colour-caps-rW91Sa46.js",
-        "assets/dose-B3LI8faG.js",
-        "assets/fullscreen-BDXEFvdz.js",
-        "assets/gamut-COkJmrKM.js",
-        "assets/hash-bWx0F85T.js",
-        "assets/hello-ClSIfa_f.js",
-        "assets/oklab-CS7oj3eq.js",
-        "assets/profiler-Bi27xYp-.js",
-        "assets/shader-xzRCRHTt.js",
-        "assets/stars-Dizbyjhr.js",
-        "assets/tail-C3cqZyil.js",
-        "assets/thinfilm-Ci8F6ZWx.js",
-        "assets/types-ci2WwWg0.js"
-      ],
-      "gzipKb": 25.4
-    },
-    "star-splat": {
-      "chunks": 13,
-      "ownGzip": 3772,
-      "gzip": 34615,
-      "raw": 87524,
-      "files": [
-        "assets/aperture-FsKt1EIq.js",
-        "assets/colour-caps-rW91Sa46.js",
-        "assets/dose-B3LI8faG.js",
-        "assets/fullscreen-BDXEFvdz.js",
-        "assets/gamut-COkJmrKM.js",
-        "assets/oklab-CS7oj3eq.js",
-        "assets/profiler-Bi27xYp-.js",
-        "assets/shader-xzRCRHTt.js",
-        "assets/star-splat-ydPVdSzs.js",
-        "assets/stars-CfawmQcR.js",
-        "assets/tail-C3cqZyil.js",
-        "assets/thinfilm-Ci8F6ZWx.js",
-        "assets/types-ci2WwWg0.js"
-      ],
-      "gzipKb": 33.8
+      "gzipKb": 33.3
     }
   }
 }

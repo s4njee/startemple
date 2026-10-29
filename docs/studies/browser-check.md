@@ -10,10 +10,12 @@ Views per effect: `hero-light` (1280 × 900), `hero-dark` (1280 × 900), `cards-
 
 The HUD time is not the number the cost studies report. It is one frame measured alone, through Chrome's coarse timestamps, on a GPU that idles between frames, so it carries a floor and reads higher than the per-frame cost in `docs/studies/epic-*.md`. It is here because it is what a visitor's browser actually does. This check says nothing about how an effect looks: the screenshots do.
 
-| Effect     | Started | Animates | HUD at 1080p                                |
-| ---------- | ------: | -------- | ------------------------------------------- |
-| deep-field |  8 of 8 | yes      | 60 fps, 1.71 ms (1.53 to 1.79 over 3 loads) |
-| hello      |  8 of 8 | yes      | 60 fps, 0.80 ms (0.78 to 0.98 over 3 loads) |
-| star-splat |  8 of 8 | yes      | 60 fps, 0.58 ms (0.36 to 0.61 over 3 loads) |
+| Effect      | Started | Animates | HUD at 1080p                                |
+| ----------- | ------: | -------- | ------------------------------------------- |
+| deep-field  |  8 of 8 | yes      | 60 fps, 1.44 ms (0.75 to 1.51 over 3 loads) |
+| hello       |  8 of 8 | yes      | 60 fps, 0.49 ms (0.40 to 0.54 over 3 loads) |
+| real-sky    |  8 of 8 | yes      | 60 fps, 1.62 ms (1.60 to 1.94 over 3 loads) |
+| star-splat  |  8 of 8 | yes      | 60 fps, 1.84 ms (1.80 to 1.99 over 3 loads) |
+| star-trails |  8 of 8 | yes      | 60 fps, 3.92 ms (2.73 to 4.27 over 3 loads) |
 
 No view logged a console error.

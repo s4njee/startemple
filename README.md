@@ -20,6 +20,7 @@ npm run shot -- hello --times 2 --bg dark   # render an effect headlessly to PNG
 npm run browser-check -- --report docs/studies/browser-check.md   # every effect in headless Chrome (dev server running)
 npm run posters -- --force   # fallback posters from held frames, as WebP
 npm run deploy     # build and upload dist/ to Cloudflare Pages (project startemple)
+node scripts/pack-bsc5.mjs path/to/bsc5.dat   # repack the Bright Star Catalogue for real-sky
 ```
 
 `/deepfield.html` is a demo page with `deep-field` behind it in the Hubble palette, its nebula morphing and its colours cycling.
@@ -28,11 +29,13 @@ npm run deploy     # build and upload dist/ to Cloudflare Pages (project startem
 
 ## Effects
 
-| Id           | What                                                                                                             | Tier |
-| ------------ | ---------------------------------------------------------------------------------------------------------------- | ---- |
-| `hello`      | The smallest effect: a few hundred stars drifting slowly, each a naive fixed disc, one instanced draw            | A    |
-| `star-splat` | The star spot laid out: colour by temperature, light by magnitude, Hubble and JWST spikes, over a drifting field | A    |
-| `deep-field` | A starfield that never shimmers: four parallax layers from the sky's statistics over a baked emission nebula     | A    |
+| Id            | What                                                                                                             | Tier |
+| ------------- | ---------------------------------------------------------------------------------------------------------------- | ---- |
+| `hello`       | The smallest effect: a few hundred stars drifting slowly, each a naive fixed disc, one instanced draw            | A    |
+| `star-splat`  | The star spot laid out: colour by temperature, light by magnitude, Hubble and JWST spikes, over a drifting field | A    |
+| `deep-field`  | A starfield that never shimmers: four parallax layers from the sky's statistics over a baked emission nebula     | A    |
+| `star-trails` | A long exposure facing the pole: every star's arc at the exposure's length, in closed form, over a skyline       | A    |
+| `real-sky`    | The sky above you tonight: the Bright Star Catalogue for your time zone's city, twinkling near the horizon       | A    |
 
 ## Layout
 
@@ -52,4 +55,4 @@ experiments/                the studies' drivers (shimmer, splat-cost, star-comp
 
 ## License
 
-MIT.
+MIT. `real-sky` carries the Yale Bright Star Catalogue, 5th revised edition (Hoffleit and Warren 1991), from the Harvard–Smithsonian Center for Astrophysics, free to use with credit.

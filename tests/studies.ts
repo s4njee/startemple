@@ -36,5 +36,8 @@ export const STUDY_SWEEPS: Readonly<Record<string, readonly StudyConfig[]>> = {
     // 2.1: the spot against the point layer's disc, and the halo's cost.
     ...sweep('star-splat', 'spot', ['gaussian', 'disc']),
     ...sweep('star-splat', 'halo', [0, 0.05, 0.2]),
+    // 2.5: trails as the star count rises; 2.6: the catalogue down to fainter limits.
+    ...sweep('star-trails', 'dose', [0.35, 1]),
+    ...sweep('real-sky', 'limit', [4, 6.5, 8]),
   ],
 };

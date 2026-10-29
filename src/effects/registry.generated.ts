@@ -2,21 +2,29 @@
 import type { EffectMeta, EffectModule } from './types.ts';
 import { meta as meta0 } from './deep-field/meta.ts';
 import { meta as meta1 } from './hello/meta.ts';
-import { meta as meta2 } from './star-splat/meta.ts';
+import { meta as meta2 } from './real-sky/meta.ts';
+import { meta as meta3 } from './star-splat/meta.ts';
+import { meta as meta4 } from './star-trails/meta.ts';
 import poster0 from './deep-field/poster.webp?url';
 import poster1 from './hello/poster.webp?url';
-import poster2 from './star-splat/poster.webp?url';
+import poster2 from './real-sky/poster.webp?url';
+import poster3 from './star-splat/poster.webp?url';
+import poster4 from './star-trails/poster.webp?url';
 
-export const metas: readonly EffectMeta[] = [meta0, meta1, meta2];
+export const metas: readonly EffectMeta[] = [meta0, meta1, meta2, meta3, meta4];
 
 export const loaders: Readonly<Record<string, () => Promise<EffectModule>>> = {
   'deep-field': () => import('./deep-field/index.ts').then((module) => module.effect),
   hello: () => import('./hello/index.ts').then((module) => module.effect),
+  'real-sky': () => import('./real-sky/index.ts').then((module) => module.effect),
   'star-splat': () => import('./star-splat/index.ts').then((module) => module.effect),
+  'star-trails': () => import('./star-trails/index.ts').then((module) => module.effect),
 };
 
 export const posters: Readonly<Record<string, string>> = {
   'deep-field': poster0,
   hello: poster1,
-  'star-splat': poster2,
+  'real-sky': poster2,
+  'star-splat': poster3,
+  'star-trails': poster4,
 };

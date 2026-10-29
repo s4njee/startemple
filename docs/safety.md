@@ -9,3 +9,5 @@ What this family takes from the others before measuring anything of its own:
 - **A whole field moving one way is a drift.** `hello`'s stars all drift the same way, so their speeds keep the field under the 0.05 widths a second cap. Parallax at many depths breaks a drift into many speeds.
 - **Twinkle is flicker.** Stars twinkle only near a horizon, through Fire Temple's band-limited flicker construction, which cannot pass three flashes a second.
 - **Meteors and the diamond ring are flashes.** They are checked as flashes at the strong dose, and the held frame never shows one at its peak.
+- **Long star trails are a regular pattern.** Concentric arcs round a pole are rings of light and dark. Past about 28° of arc (under two hours of sky) the pattern analyser reads them as stripes however few the stars, so `star-trails` defaults to 26° and its six-hour preset is declared and gated, and a held frame never shows more than 26°.
+- **Scintillation is flicker, and built as flicker.** `real-sky`'s stars twinkle hardest near the horizon, through the capped flicker signal, so no star can pass three flashes a second however low it is.

@@ -59,6 +59,36 @@
       }
     },
     {
+      "id": "real-sky",
+      "title": "Real sky",
+      "summary": "The sky above you tonight: the 9 096 stars of the Yale Bright Star Catalogue where they are for your time zone's city at this moment, turning in a gentle time-lapse over a dark skyline. Each star's altitude comes from the sidereal time and your latitude on the GPU; low stars are dimmed by the air and twinkle harder and faster, and bright ones flash colours, as they do near the horizon.",
+      "epic": "2",
+      "tier": "B",
+      "tags": [
+        "stars",
+        "catalogue",
+        "night sky",
+        "scintillation"
+      ],
+      "status": "demo",
+      "poster": "src/effects/real-sky/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of tonight’s sky, drawn once on the server or as a poster.",
+        "useCases": [
+          "\"The sky above you tonight\" on an astronomy or travel page",
+          "A night-sky hero that is true to the visitor’s place"
+        ]
+      }
+    },
+    {
       "id": "star-splat",
       "title": "Star splat",
       "summary": "The family's building block, laid out: stars as points with a temperature and a magnitude. A row from 2 400 K to 40 000 K, coloured by Planck's law; a row of magnitudes 0 to 6, a hundred times dimmer at the end; diffraction spikes as a Hubble or a JWST image draws them; over a drifting field drawn from the sky's own statistics. Every star is a Gaussian integrated over each pixel, so it keeps its light and its look wherever it sits.",
@@ -84,6 +114,38 @@
         "useCases": [
           "A reference for star colour and brightness",
           "The spot every space effect draws"
+        ]
+      }
+    },
+    {
+      "id": "star-trails",
+      "title": "Star trails",
+      "summary": "A long exposure facing the celestial pole: every star sweeps an arc of 15° an hour round it, coloured by its temperature, over a dark skyline. The exposure grows over forty seconds to an hour and three quarters of sky, holds, and starts again. Drawn in closed form, each arc at its current length, so nothing accumulates and nothing is lost on a resize.",
+      "epic": "2",
+      "tier": "A",
+      "tags": [
+        "stars",
+        "long exposure",
+        "hero"
+      ],
+      "status": "demo",
+      "poster": "src/effects/star-trails/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "low",
+        "patternPresets": [
+          "all night"
+        ],
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the full exposure.",
+        "useCases": [
+          "A slow, calm night hero",
+          "An astronomy or photography page"
         ]
       }
     }

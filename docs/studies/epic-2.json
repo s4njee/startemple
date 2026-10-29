@@ -1,6 +1,6 @@
 {
   "epic": "2",
-  "measuredAt": "2026-10-29T07:43:48.784Z",
+  "measuredAt": "2026-10-29T09:14:03.323Z",
   "device": "Metal driver on macOS Version 26.6.2 (Build 25G83)",
   "deviceClass": "unclassified",
   "adapter": {
@@ -24,9 +24,9 @@
       "width": 1920,
       "height": 1080,
       "spanMs": 0.065536,
-      "slopeMs": 0.065536,
-      "slopeMinMs": -0.065536,
-      "slopeMaxMs": 0.5024426666666667,
+      "slopeMs": 0.043690666666666676,
+      "slopeMinMs": -1.1359573333333335,
+      "slopeMaxMs": 0.065536,
       "passes": 1,
       "metric": "gpu-timestamp"
     },
@@ -36,9 +36,9 @@
       "width": 1920,
       "height": 1080,
       "spanMs": 0.720896,
-      "slopeMs": 0.7427413333333334,
-      "slopeMinMs": 0.06553599999999997,
-      "slopeMaxMs": 1.5728639999999998,
+      "slopeMs": 0.32767999999999997,
+      "slopeMinMs": -0.458752,
+      "slopeMaxMs": 1.5291733333333333,
       "passes": 11,
       "metric": "gpu-timestamp"
     },
@@ -47,10 +47,10 @@
       "config": "default",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.458752,
-      "slopeMs": 1.0267306666666667,
-      "slopeMinMs": -0.131072,
-      "slopeMaxMs": 1.2888746666666666,
+      "spanMs": 0.262144,
+      "slopeMs": 0.9393493333333334,
+      "slopeMinMs": -1.0048853333333334,
+      "slopeMaxMs": 1.5947093333333333,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -60,9 +60,9 @@
       "width": 1920,
       "height": 1080,
       "spanMs": 0.262144,
-      "slopeMs": 0.2184533333333333,
-      "slopeMinMs": -0.13107199999999997,
-      "slopeMaxMs": 0.6116693333333333,
+      "slopeMs": 0.17476266666666665,
+      "slopeMinMs": -1.179648,
+      "slopeMaxMs": 1.7694719999999997,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -71,10 +71,10 @@
       "config": "preset stars only",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.524288,
-      "slopeMs": 0.8082773333333334,
-      "slopeMinMs": 0.131072,
-      "slopeMaxMs": 1.31072,
+      "spanMs": 0.262144,
+      "slopeMs": 1.179648,
+      "slopeMinMs": 0.19660800000000003,
+      "slopeMaxMs": 1.5510186666666665,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -83,10 +83,10 @@
       "config": "preset hubble palette",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.524288,
-      "slopeMs": 0.393216,
-      "slopeMinMs": 0.021845333333333345,
-      "slopeMaxMs": 1.0704213333333332,
+      "spanMs": 0.458752,
+      "slopeMs": 0.065536,
+      "slopeMinMs": -1.0704213333333332,
+      "slopeMaxMs": 1.2888746666666668,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -95,10 +95,106 @@
       "config": "preset dense and still",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.458752,
-      "slopeMs": 0.15291733333333332,
-      "slopeMinMs": -0.021845333333333345,
-      "slopeMaxMs": 0.524288,
+      "spanMs": 3.342336,
+      "slopeMs": 0,
+      "slopeMinMs": -0.98304,
+      "slopeMaxMs": 1.4417919999999997,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset living hubble",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 4.128768,
+      "slopeMs": 3.3204906666666667,
+      "slopeMinMs": 2.4466773333333336,
+      "slopeMaxMs": 4.696746666666667,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset twinkling",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.262144,
+      "slopeMs": 0.851968,
+      "slopeMinMs": 0.1747626666666667,
+      "slopeMaxMs": 1.5291733333333333,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "default",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.851968,
+      "slopeMs": 0.786432,
+      "slopeMinMs": -0.32767999999999997,
+      "slopeMaxMs": 1.6820906666666666,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset tonight, facing south",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.720896,
+      "slopeMs": 0.7427413333333334,
+      "slopeMinMs": -0.32767999999999997,
+      "slopeMaxMs": 1.6602453333333334,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset facing north",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.720896,
+      "slopeMs": 0.7645866666666667,
+      "slopeMinMs": -0.2184533333333333,
+      "slopeMaxMs": 1.7257813333333332,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset whole sky",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.851968,
+      "slopeMs": 0.8082773333333333,
+      "slopeMinMs": -0.30583466666666653,
+      "slopeMaxMs": 1.703936,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset still air",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 2.818048,
+      "slopeMs": 0.524288,
+      "slopeMinMs": -0.2839893333333334,
+      "slopeMaxMs": 1.572864,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset from Sydney",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 2.359296,
+      "slopeMs": 0.04369066666666669,
+      "slopeMinMs": -0.4369066666666666,
+      "slopeMaxMs": 1.703936,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -107,10 +203,10 @@
       "config": "default",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.393216,
-      "slopeMs": 0.2184533333333333,
-      "slopeMinMs": -0.04369066666666662,
-      "slopeMaxMs": 1.1141120000000002,
+      "spanMs": 0.196608,
+      "slopeMs": 0.17476266666666665,
+      "slopeMinMs": -0.6335146666666667,
+      "slopeMaxMs": 1.2014933333333333,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -119,10 +215,10 @@
       "config": "preset as the eye sees",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.458752,
-      "slopeMs": 0.2184533333333333,
-      "slopeMinMs": -0.15291733333333335,
-      "slopeMaxMs": 1.048576,
+      "spanMs": 0.32768,
+      "slopeMs": 0.15291733333333332,
+      "slopeMinMs": -1.0048853333333334,
+      "slopeMaxMs": 1.9223893333333333,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -131,10 +227,10 @@
       "config": "preset full colour",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.393216,
-      "slopeMs": 0.589824,
-      "slopeMinMs": -0.06553600000000004,
-      "slopeMaxMs": 1.3544106666666667,
+      "spanMs": 0.262144,
+      "slopeMs": 0.65536,
+      "slopeMinMs": 0.10922666666666665,
+      "slopeMaxMs": 1.507328,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -143,10 +239,10 @@
       "config": "preset hubble",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.458752,
-      "slopeMs": 0.7208960000000001,
-      "slopeMinMs": -0.26214399999999993,
-      "slopeMaxMs": 1.2670293333333331,
+      "spanMs": 0.262144,
+      "slopeMs": 1.0922666666666665,
+      "slopeMinMs": -0.524288,
+      "slopeMaxMs": 1.900544,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -155,11 +251,71 @@
       "config": "preset disc spots",
       "width": 1920,
       "height": 1080,
-      "spanMs": 0.524288,
-      "slopeMs": 0.4369066666666666,
-      "slopeMinMs": 0.15291733333333327,
-      "slopeMaxMs": 0.9830399999999999,
+      "spanMs": 3.670016,
+      "slopeMs": -0.3495253333333334,
+      "slopeMinMs": -1.0704213333333334,
+      "slopeMaxMs": 0.8301226666666667,
       "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "default",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 1.900544,
+      "slopeMs": 0.17476266666666662,
+      "slopeMinMs": -0.4805973333333333,
+      "slopeMaxMs": 1.6384,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "preset an hour and three quarters",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.65536,
+      "slopeMs": 1.3544106666666667,
+      "slopeMinMs": -0.2184533333333333,
+      "slopeMaxMs": 1.703936,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "preset all night",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.720896,
+      "slopeMs": 1.4417920000000002,
+      "slopeMinMs": -0.19660800000000003,
+      "slopeMaxMs": 1.7694720000000002,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "preset a short one",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.720896,
+      "slopeMs": 1.419946666666667,
+      "slopeMinMs": -0.08738133333333338,
+      "slopeMaxMs": 1.7913173333333334,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "preset pole overhead",
+      "width": 1920,
+      "height": 1080,
+      "spanMs": 0.786432,
+      "slopeMs": 1.1359573333333335,
+      "slopeMinMs": -0.34952533333333324,
+      "slopeMaxMs": 1.6165546666666668,
+      "passes": 4,
       "metric": "gpu-timestamp"
     },
     {
@@ -171,9 +327,9 @@
         "dose": 0.1
       },
       "spanMs": 0.262144,
-      "slopeMs": 0.15291733333333335,
-      "slopeMinMs": -0.10922666666666665,
-      "slopeMaxMs": 0.4369066666666667,
+      "slopeMs": 0.589824,
+      "slopeMinMs": -0.786432,
+      "slopeMaxMs": 1.4199466666666665,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -185,10 +341,10 @@
       "params": {
         "dose": 0.35
       },
-      "spanMs": 0.458752,
-      "slopeMs": 0.98304,
-      "slopeMinMs": -0.1747626666666667,
-      "slopeMaxMs": 1.3544106666666667,
+      "spanMs": 0.32768,
+      "slopeMs": 1.245184,
+      "slopeMinMs": 0.021845333333333345,
+      "slopeMaxMs": 2.6869759999999996,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -200,10 +356,10 @@
       "params": {
         "dose": 0.7
       },
-      "spanMs": 0.393216,
-      "slopeMs": 0.15291733333333332,
-      "slopeMinMs": -0.08738133333333335,
-      "slopeMaxMs": 0.45875200000000005,
+      "spanMs": 0.196608,
+      "slopeMs": 1.2233386666666666,
+      "slopeMinMs": 0.5461333333333332,
+      "slopeMaxMs": 1.5291733333333333,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -215,10 +371,10 @@
       "params": {
         "dose": 1
       },
-      "spanMs": 2.228224,
-      "slopeMs": -0.1747626666666667,
-      "slopeMinMs": -0.19660799999999998,
-      "slopeMaxMs": 0.21845333333333336,
+      "spanMs": 2.94912,
+      "slopeMs": 0.24029866666666666,
+      "slopeMinMs": -1.0704213333333332,
+      "slopeMaxMs": 1.4636373333333335,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -230,10 +386,10 @@
       "params": {
         "nebula": 0
       },
-      "spanMs": 0.393216,
-      "slopeMs": 0.2184533333333333,
-      "slopeMinMs": -0.13107199999999994,
-      "slopeMaxMs": 0.6116693333333334,
+      "spanMs": 0.262144,
+      "slopeMs": 0.6335146666666667,
+      "slopeMinMs": -0.7645866666666666,
+      "slopeMaxMs": 1.5947093333333333,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -245,10 +401,10 @@
       "params": {
         "spot": "gaussian"
       },
-      "spanMs": 0.458752,
-      "slopeMs": 0.6335146666666667,
-      "slopeMinMs": -0.3495253333333334,
-      "slopeMaxMs": 1.2888746666666668,
+      "spanMs": 0.32768,
+      "slopeMs": 0.262144,
+      "slopeMinMs": -1.0048853333333334,
+      "slopeMaxMs": 2.031616,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -260,10 +416,10 @@
       "params": {
         "spot": "disc"
       },
-      "spanMs": 0.458752,
-      "slopeMs": 0.9393493333333334,
-      "slopeMinMs": -0.1747626666666667,
-      "slopeMaxMs": 1.2451839999999998,
+      "spanMs": 3.080192,
+      "slopeMs": -0.7208959999999999,
+      "slopeMinMs": -1.1578026666666665,
+      "slopeMaxMs": 0.6335146666666667,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -275,10 +431,10 @@
       "params": {
         "halo": 0
       },
-      "spanMs": 0.458752,
-      "slopeMs": 0.4369066666666666,
-      "slopeMinMs": -0.06553600000000004,
-      "slopeMaxMs": 1.463637333333333,
+      "spanMs": 0.32768,
+      "slopeMs": 0.32767999999999997,
+      "slopeMinMs": -1.0922666666666667,
+      "slopeMaxMs": 1.6383999999999999,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -290,10 +446,10 @@
       "params": {
         "halo": 0.05
       },
-      "spanMs": 0.458752,
-      "slopeMs": 0.4369066666666666,
-      "slopeMinMs": -0.2184533333333333,
-      "slopeMaxMs": 1.4636373333333335,
+      "spanMs": 0.32768,
+      "slopeMs": 0.786432,
+      "slopeMinMs": -1.1578026666666665,
+      "slopeMaxMs": 1.5291733333333333,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -305,11 +461,86 @@
       "params": {
         "halo": 0.2
       },
-      "spanMs": 0.458752,
-      "slopeMs": 0.32768,
-      "slopeMinMs": -0.2184533333333334,
-      "slopeMaxMs": 1.0048853333333332,
+      "spanMs": 0.524288,
+      "slopeMs": 0.1747626666666667,
+      "slopeMinMs": -0.7208960000000001,
+      "slopeMaxMs": 1.2888746666666668,
       "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "dose=0.35",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "dose": 0.35
+      },
+      "spanMs": 0.65536,
+      "slopeMs": 0.6772053333333333,
+      "slopeMinMs": 0.021845333333333272,
+      "slopeMaxMs": 1.6384,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "dose=1",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "dose": 1
+      },
+      "spanMs": 0.98304,
+      "slopeMs": 1.0048853333333334,
+      "slopeMinMs": -0.10922666666666665,
+      "slopeMaxMs": 1.7476266666666664,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "limit=4",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "limit": 4
+      },
+      "spanMs": 0.65536,
+      "slopeMs": 1.4199466666666665,
+      "slopeMinMs": -0.39321599999999995,
+      "slopeMaxMs": 1.6383999999999999,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "limit=6.5",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "limit": 6.5
+      },
+      "spanMs": 2.818048,
+      "slopeMs": 0,
+      "slopeMinMs": -0.34952533333333324,
+      "slopeMaxMs": 1.9442346666666666,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "limit=8",
+      "width": 1920,
+      "height": 1080,
+      "params": {
+        "limit": 8
+      },
+      "spanMs": 0.98304,
+      "slopeMs": 1.507328,
+      "slopeMinMs": 0.17476266666666662,
+      "slopeMaxMs": 1.8131626666666667,
+      "passes": 3,
       "metric": "gpu-timestamp"
     },
     {
@@ -318,9 +549,9 @@
       "width": 960,
       "height": 540,
       "spanMs": 0.065536,
-      "slopeMs": 0.065536,
-      "slopeMinMs": -0.021845333333333345,
-      "slopeMaxMs": 0.30583466666666664,
+      "slopeMs": 0.043690666666666676,
+      "slopeMinMs": -0.589824,
+      "slopeMaxMs": 1.0048853333333334,
       "passes": 1,
       "metric": "gpu-timestamp"
     },
@@ -329,10 +560,10 @@
       "config": "constant scene + bloom + output",
       "width": 960,
       "height": 540,
-      "spanMs": 0.524288,
-      "slopeMs": 0.3495253333333333,
-      "slopeMinMs": -0.06553600000000004,
-      "slopeMaxMs": 1.2014933333333333,
+      "spanMs": 0.851968,
+      "slopeMs": 0.15291733333333338,
+      "slopeMinMs": -0.7208960000000001,
+      "slopeMaxMs": 1.245184,
       "passes": 9,
       "metric": "gpu-timestamp"
     },
@@ -341,10 +572,10 @@
       "config": "default",
       "width": 960,
       "height": 540,
-      "spanMs": 0.720896,
-      "slopeMs": 0.08738133333333331,
-      "slopeMinMs": -0.28398933333333337,
-      "slopeMaxMs": 0.8738133333333332,
+      "spanMs": 0.196608,
+      "slopeMs": 0.8738133333333332,
+      "slopeMinMs": -0.9393493333333334,
+      "slopeMaxMs": 1.6820906666666666,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -353,10 +584,10 @@
       "config": "preset deep field",
       "width": 960,
       "height": 540,
-      "spanMs": 1.114112,
-      "slopeMs": 0.021845333333333345,
-      "slopeMinMs": -0.21845333333333336,
-      "slopeMaxMs": 1.1578026666666668,
+      "spanMs": 0.262144,
+      "slopeMs": 0.851968,
+      "slopeMinMs": -1.179648,
+      "slopeMaxMs": 1.7039360000000003,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -366,9 +597,9 @@
       "width": 960,
       "height": 540,
       "spanMs": 0.262144,
-      "slopeMs": 0.1747626666666667,
-      "slopeMinMs": -0.3495253333333334,
-      "slopeMaxMs": 0.917504,
+      "slopeMs": 0.13107199999999994,
+      "slopeMinMs": -0.8082773333333334,
+      "slopeMaxMs": 1.1359573333333335,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -377,10 +608,10 @@
       "config": "preset hubble palette",
       "width": 960,
       "height": 540,
-      "spanMs": 0.32768,
-      "slopeMs": 0.15291733333333332,
-      "slopeMinMs": -0.28398933333333337,
-      "slopeMaxMs": 1.114112,
+      "spanMs": 0.196608,
+      "slopeMs": 0.851968,
+      "slopeMinMs": -0.8301226666666667,
+      "slopeMaxMs": 1.2670293333333333,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -389,10 +620,106 @@
       "config": "preset dense and still",
       "width": 960,
       "height": 540,
+      "spanMs": 0.196608,
+      "slopeMs": 0.6335146666666667,
+      "slopeMinMs": 0.10922666666666665,
+      "slopeMaxMs": 1.463637333333333,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset living hubble",
+      "width": 960,
+      "height": 540,
+      "spanMs": 1.245184,
+      "slopeMs": 1.2233386666666666,
+      "slopeMinMs": 0.8082773333333333,
+      "slopeMaxMs": 3.0365013333333337,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "deep-field",
+      "config": "preset twinkling",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.196608,
+      "slopeMs": 0.8738133333333334,
+      "slopeMinMs": 0.065536,
+      "slopeMaxMs": 1.0704213333333332,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "default",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.524288,
+      "slopeMs": 0.28398933333333337,
+      "slopeMinMs": -0.6990506666666668,
+      "slopeMaxMs": 1.5510186666666665,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset tonight, facing south",
+      "width": 960,
+      "height": 540,
       "spanMs": 0.32768,
-      "slopeMs": 0.24029866666666666,
-      "slopeMinMs": -0.2402986666666667,
-      "slopeMaxMs": 1.1578026666666668,
+      "slopeMs": 0.32768,
+      "slopeMinMs": -0.6553599999999999,
+      "slopeMaxMs": 1.2888746666666668,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset facing north",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.21845333333333336,
+      "slopeMinMs": -0.6772053333333333,
+      "slopeMaxMs": 1.3107199999999999,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset whole sky",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.458752,
+      "slopeMs": 0.4369066666666666,
+      "slopeMinMs": -0.8082773333333334,
+      "slopeMaxMs": 1.3544106666666667,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset still air",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.28398933333333337,
+      "slopeMinMs": -0.524288,
+      "slopeMaxMs": 1.2888746666666666,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "preset from Sydney",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.3713706666666667,
+      "slopeMinMs": -1.0048853333333334,
+      "slopeMaxMs": 1.6602453333333334,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -401,10 +728,10 @@
       "config": "default",
       "width": 960,
       "height": 540,
-      "spanMs": 0.851968,
-      "slopeMs": 0.10922666666666668,
-      "slopeMinMs": -0.28398933333333337,
-      "slopeMaxMs": 0.7208960000000001,
+      "spanMs": 3.473408,
+      "slopeMs": -0.6553599999999999,
+      "slopeMinMs": -1.0922666666666665,
+      "slopeMaxMs": 0.6335146666666668,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -413,10 +740,10 @@
       "config": "preset as the eye sees",
       "width": 960,
       "height": 540,
-      "spanMs": 0.32768,
-      "slopeMs": 0.1747626666666667,
-      "slopeMinMs": -0.10922666666666665,
-      "slopeMaxMs": 0.7427413333333334,
+      "spanMs": 0.196608,
+      "slopeMs": 1.2670293333333333,
+      "slopeMinMs": 0.15291733333333335,
+      "slopeMaxMs": 1.5291733333333335,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -425,10 +752,10 @@
       "config": "preset full colour",
       "width": 960,
       "height": 540,
-      "spanMs": 0.524288,
-      "slopeMs": 0.17476266666666665,
-      "slopeMinMs": -0.08738133333333331,
-      "slopeMaxMs": 0.9393493333333334,
+      "spanMs": 0.262144,
+      "slopeMs": 1.048576,
+      "slopeMinMs": -0.6772053333333333,
+      "slopeMaxMs": 1.9223893333333333,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -437,10 +764,10 @@
       "config": "preset hubble",
       "width": 960,
       "height": 540,
-      "spanMs": 0.524288,
-      "slopeMs": 0.08738133333333335,
-      "slopeMinMs": -0.30583466666666664,
-      "slopeMaxMs": 0.786432,
+      "spanMs": 0.262144,
+      "slopeMs": 0.2184533333333333,
+      "slopeMinMs": -1.0267306666666667,
+      "slopeMaxMs": 1.2451839999999998,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -449,11 +776,71 @@
       "config": "preset disc spots",
       "width": 960,
       "height": 540,
-      "spanMs": 0.524288,
-      "slopeMs": 0.5679786666666666,
-      "slopeMinMs": 0,
-      "slopeMaxMs": 1.4199466666666665,
+      "spanMs": 2.031616,
+      "slopeMs": 0,
+      "slopeMinMs": -1.0922666666666665,
+      "slopeMaxMs": 1.6165546666666668,
       "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "default",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.524288,
+      "slopeMs": 0.24029866666666666,
+      "slopeMinMs": -0.6335146666666668,
+      "slopeMaxMs": 1.2888746666666666,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "preset an hour and three quarters",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.32768,
+      "slopeMinMs": -0.6116693333333333,
+      "slopeMaxMs": 1.2670293333333333,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "preset all night",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.393216,
+      "slopeMs": 0.3058346666666667,
+      "slopeMinMs": -0.6772053333333332,
+      "slopeMaxMs": 1.3325653333333334,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "preset a short one",
+      "width": 960,
+      "height": 540,
+      "spanMs": 0.458752,
+      "slopeMs": 0.262144,
+      "slopeMinMs": -0.851968,
+      "slopeMaxMs": 1.3325653333333334,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "preset pole overhead",
+      "width": 960,
+      "height": 540,
+      "spanMs": 1.048576,
+      "slopeMs": 0.17476266666666665,
+      "slopeMinMs": -0.8082773333333333,
+      "slopeMaxMs": 1.3544106666666667,
+      "passes": 4,
       "metric": "gpu-timestamp"
     },
     {
@@ -465,9 +852,9 @@
         "dose": 0.1
       },
       "spanMs": 0.32768,
-      "slopeMs": 0.65536,
-      "slopeMinMs": -0.17476266666666665,
-      "slopeMaxMs": 0.8956586666666667,
+      "slopeMs": 0.043690666666666655,
+      "slopeMinMs": -1.179648,
+      "slopeMaxMs": 1.2888746666666666,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -479,10 +866,10 @@
       "params": {
         "dose": 0.35
       },
-      "spanMs": 0.65536,
-      "slopeMs": 0.02184533333333331,
-      "slopeMinMs": -0.3713706666666667,
-      "slopeMaxMs": 1.0267306666666667,
+      "spanMs": 0.196608,
+      "slopeMs": 1.3544106666666664,
+      "slopeMinMs": -1.2233386666666666,
+      "slopeMaxMs": 1.6820906666666666,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -494,10 +881,10 @@
       "params": {
         "dose": 0.7
       },
-      "spanMs": 0.393216,
-      "slopeMs": 0.17476266666666662,
-      "slopeMinMs": -0.5024426666666667,
-      "slopeMaxMs": 1.0267306666666667,
+      "spanMs": 0.196608,
+      "slopeMs": 0.10922666666666665,
+      "slopeMinMs": -1.0922666666666667,
+      "slopeMaxMs": 1.2888746666666666,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -510,9 +897,9 @@
         "dose": 1
       },
       "spanMs": 0.393216,
-      "slopeMs": 0.7864319999999999,
-      "slopeMinMs": 0.45875200000000005,
-      "slopeMaxMs": 1.2014933333333333,
+      "slopeMs": 0.41506133333333334,
+      "slopeMinMs": -1.0267306666666667,
+      "slopeMaxMs": 1.5510186666666668,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -524,10 +911,10 @@
       "params": {
         "nebula": 0
       },
-      "spanMs": 0.917504,
-      "slopeMs": -0.043690666666666655,
-      "slopeMinMs": -0.15291733333333335,
-      "slopeMaxMs": 1.114112,
+      "spanMs": 0.262144,
+      "slopeMs": 0.08738133333333332,
+      "slopeMinMs": -1.179648,
+      "slopeMaxMs": 1.4854826666666667,
       "passes": 3,
       "metric": "gpu-timestamp"
     },
@@ -539,10 +926,10 @@
       "params": {
         "spot": "gaussian"
       },
-      "spanMs": 0.458752,
-      "slopeMs": 0.15291733333333332,
-      "slopeMinMs": -0.41506133333333334,
-      "slopeMaxMs": 1.2670293333333333,
+      "spanMs": 0.196608,
+      "slopeMs": 1.2670293333333333,
+      "slopeMinMs": 1.0267306666666667,
+      "slopeMaxMs": 1.6165546666666668,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -554,10 +941,10 @@
       "params": {
         "spot": "disc"
       },
-      "spanMs": 1.376256,
-      "slopeMs": 0.08738133333333324,
-      "slopeMinMs": -0.30583466666666664,
-      "slopeMaxMs": 0.786432,
+      "spanMs": 0.196608,
+      "slopeMs": 1.2670293333333333,
+      "slopeMinMs": 0.17476266666666665,
+      "slopeMaxMs": 3.145728,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -569,10 +956,10 @@
       "params": {
         "halo": 0
       },
-      "spanMs": 0.393216,
-      "slopeMs": 0.15291733333333332,
-      "slopeMinMs": -0.1747626666666667,
-      "slopeMaxMs": 1.0922666666666665,
+      "spanMs": 0.262144,
+      "slopeMs": 0.17476266666666665,
+      "slopeMinMs": -0.98304,
+      "slopeMaxMs": 1.9660799999999998,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -584,10 +971,10 @@
       "params": {
         "halo": 0.05
       },
-      "spanMs": 0.786432,
-      "slopeMs": 0,
-      "slopeMinMs": -0.524288,
-      "slopeMaxMs": 0.6990506666666666,
+      "spanMs": 0.262144,
+      "slopeMs": 0.196608,
+      "slopeMinMs": -0.6116693333333333,
+      "slopeMaxMs": 1.5510186666666665,
       "passes": 2,
       "metric": "gpu-timestamp"
     },
@@ -600,10 +987,85 @@
         "halo": 0.2
       },
       "spanMs": 0.262144,
-      "slopeMs": 0.17476266666666665,
-      "slopeMinMs": 0,
-      "slopeMaxMs": 1.114112,
+      "slopeMs": 1.4854826666666667,
+      "slopeMinMs": 0.3713706666666667,
+      "slopeMaxMs": 1.6602453333333334,
       "passes": 2,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "dose=0.35",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "dose": 0.35
+      },
+      "spanMs": 0.524288,
+      "slopeMs": 0.2184533333333333,
+      "slopeMinMs": -1.048576,
+      "slopeMaxMs": 1.900544,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "star-trails",
+      "config": "dose=1",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "dose": 1
+      },
+      "spanMs": 0.524288,
+      "slopeMs": 1.114112,
+      "slopeMinMs": -0.6335146666666667,
+      "slopeMaxMs": 1.3544106666666667,
+      "passes": 4,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "limit=4",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "limit": 4
+      },
+      "spanMs": 0.262144,
+      "slopeMs": 0.17476266666666665,
+      "slopeMinMs": -0.7645866666666667,
+      "slopeMaxMs": 1.114112,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "limit=6.5",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "limit": 6.5
+      },
+      "spanMs": 0.393216,
+      "slopeMs": 0.3276799999999998,
+      "slopeMinMs": -0.8738133333333334,
+      "slopeMaxMs": 1.5947093333333333,
+      "passes": 3,
+      "metric": "gpu-timestamp"
+    },
+    {
+      "effect": "real-sky",
+      "config": "limit=8",
+      "width": 960,
+      "height": 540,
+      "params": {
+        "limit": 8
+      },
+      "spanMs": 0.393216,
+      "slopeMs": 0.3713706666666667,
+      "slopeMinMs": -0.6116693333333334,
+      "slopeMaxMs": 1.6165546666666666,
+      "passes": 3,
       "metric": "gpu-timestamp"
     }
   ]
