@@ -12,7 +12,7 @@
   --text: #f1ece4;
   --muted: #b9afa2;
   --faint: #807669;
-  --hue: #f0a050;
+  --hue: #fa6e1a;
   --hue-2: #f6d9a8;
 }
 
@@ -68,15 +68,15 @@ body[data-state='fallback'] {
       circle at 70% 42%,
       #000 0 9vmin,
       #f6d9a8 9.4vmin,
-      #f0a05066 11vmin,
+      #fa6e1a66 11vmin,
       transparent 16vmin
     ),
     linear-gradient(
       135deg,
       transparent 47%,
-      #f0a05055 49.5%,
+      #fa6e1a55 49.5%,
       #f6d9a888 50%,
-      #f0a05055 50.5%,
+      #fa6e1a55 50.5%,
       transparent 53%
     ),
     var(--paper);
