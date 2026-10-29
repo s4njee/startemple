@@ -1,7 +1,7 @@
 // The "Event Horizon" page (blackhole.html): black-hole fixed behind a whole page, rolled 45° so its
 // disc runs up to the top right, the hole off to the right of the text. Ordinary page code: mount
 // the effect, place the hole for the window's shape, pass the pointer on so it flies the view, show
-// where the view is, and wire up the toolbar.
+// where the view is, sweep the Doppler beaming up and down, and wire up the toolbar.
 
 import { createGpuSession } from '../../gpu/device.ts';
 import { mountEffect } from '../../shell/host.ts';
@@ -30,6 +30,8 @@ const pauseButton = byId<HTMLButtonElement>('pause');
 const temperatureSlider = byId<HTMLInputElement>('temperature');
 const temperatureValue = byId<HTMLOutputElement>('temperature-value');
 const beamingSlider = byId<HTMLInputElement>('beaming');
+const beamingValue = byId<HTMLOutputElement>('beaming-value');
+const sweepBox = byId<HTMLInputElement>('sweep');
 const glowSlider = byId<HTMLInputElement>('glow');
 const turnSlider = byId<HTMLInputElement>('turn');
 const steerBox = byId<HTMLInputElement>('steer');
@@ -121,6 +123,29 @@ host.onStats((stats) => {
   viewName.textContent = `${Math.abs(round)}° round the hole`;
 });
 
+// --- The beaming sweep -----------------------------------------------------------------------------
+// While the disc plays, the page moves the beaming slider itself: from full beaming, where the side
+// coming towards the viewer outshines the side going away, down to none, where the disc is even
+// all round, and back, once every four seconds. A cosine, so the disc's light changes smoothly, a
+// quarter of a swing a second against the flash limit's three.
+
+const SWEEP_SECONDS = 4;
+// The cosine's phase: 0 is full beaming, π none. Starts at the slider's value.
+let sweepPhase = Math.acos(1 - 2 * Number(beamingSlider.value));
+let lastSweep = performance.now();
+function sweep(now: number) {
+  const delta = Math.min(0.1, (now - lastSweep) / 1000);
+  lastSweep = now;
+  if (playing && sweepBox.checked && !document.hidden) {
+    sweepPhase = (sweepPhase + (delta * 2 * Math.PI) / SWEEP_SECONDS) % (2 * Math.PI);
+    const value = 0.5 + 0.5 * Math.cos(sweepPhase);
+    beamingSlider.value = String(value);
+    showBeaming(value);
+  }
+  requestAnimationFrame(sweep);
+}
+requestAnimationFrame(sweep);
+
 // --- The toolbar -----------------------------------------------------------------------------------
 
 pauseButton.addEventListener('click', () => {
@@ -134,7 +159,19 @@ temperatureSlider.addEventListener('input', () => {
   set('temperature', Number(temperatureSlider.value));
   temperatureValue.textContent = `${temperatureSlider.value} K`;
 });
-beamingSlider.addEventListener('input', () => set('beaming', Number(beamingSlider.value)));
+function showBeaming(value: number) {
+  set('beaming', value);
+  beamingValue.textContent = `${Math.round(value * 100)}%`;
+}
+
+// Taking hold of the slider stops the sweep; the box starts it again from where the slider is.
+beamingSlider.addEventListener('input', () => {
+  sweepBox.checked = false;
+  showBeaming(Number(beamingSlider.value));
+});
+sweepBox.addEventListener('change', () => {
+  if (sweepBox.checked) sweepPhase = Math.acos(1 - 2 * Number(beamingSlider.value));
+});
 glowSlider.addEventListener('input', () => set('glow', Number(glowSlider.value)));
 turnSlider.addEventListener('input', () => set('turn', Number(turnSlider.value)));
 steerBox.addEventListener('change', () => set('steer', steerBox.checked ? 1 : 0));
