@@ -12,15 +12,18 @@ The HUD time is not the number the cost studies report. It is one frame measured
 
 | Effect | Started | Animates | HUD at 1080p |
 | --- | ---: | --- | --- |
-| data-galaxy | 8 of 8 | yes | 60 fps, 2.86 ms (2.60 to 2.98 over 3 loads) |
-| deep-field | 8 of 8 | yes | 60 fps, 3.00 ms (2.91 to 3.17 over 3 loads) |
-| galaxy-collision | 8 of 8 | yes | 60 fps, 1.84 ms (1.59 to 1.88 over 3 loads) |
-| hello | 8 of 8 | yes | 60 fps, 0.33 ms (0.30 to 0.55 over 3 loads) |
-| nebula | 8 of 8 | yes | 60 fps, 1.22 ms (0.81 to 1.42 over 3 loads) |
-| nebula-volume | 8 of 8 | yes | 60 fps, 4.24 ms (3.66 to 4.65 over 3 loads) |
-| real-sky | 8 of 8 | yes | 60 fps, 1.30 ms (1.16 to 1.47 over 3 loads) |
-| spiral-galaxy | 8 of 8 | yes | 60 fps, 3.74 ms (3.18 to 4.15 over 3 loads) |
-| star-splat | 8 of 8 | yes | 60 fps, 0.52 ms (0.51 to 0.63 over 3 loads) |
-| star-trails | 8 of 8 | yes | 60 fps, 2.35 ms (2.22 to 2.58 over 3 loads) |
+| black-hole | 8 of 8 | yes | 60 fps, 6.02 ms (5.83 to 6.04 over 3 loads) |
+| data-galaxy | 8 of 8 | yes | 60 fps, 1.36 ms (1.23 to 1.36 over 3 loads) |
+| deep-field | 8 of 8 | yes | 60 fps, 0.61 ms (0.53 to 0.63 over 3 loads) |
+| galaxy-collision | 8 of 8 | yes | 60 fps, 2.38 ms (2.19 to 2.41 over 3 loads) |
+| hello | 8 of 8 | yes | 60 fps, 0.42 ms (0.36 to 0.43 over 3 loads) |
+| lens-cursor | 8 of 8 | yes | 60 fps, 0.46 ms (0.43 to 0.52 over 3 loads) |
+| nebula | 8 of 8 | yes | 60 fps, 0.73 ms (0.72 to 0.73 over 3 loads) |
+| nebula-volume | 8 of 8 | yes | 60 fps, 4.95 ms (4.76 to 5.26 over 3 loads) |
+| orbits | 8 of 8 | yes | 60 fps, 1.35 ms (1.33 to 1.37 over 3 loads) |
+| real-sky | 8 of 8 | yes | 60 fps, 2.13 ms (2.11 to 2.20 over 3 loads) |
+| spiral-galaxy | 8 of 8 | yes | 60 fps, 4.79 ms (4.70 to 4.80 over 3 loads) |
+| star-splat | 8 of 8 | yes | 60 fps, 0.57 ms (0.52 to 0.61 over 3 loads) |
+| star-trails | 8 of 8 | yes | 60 fps, 2.15 ms (2.08 to 2.19 over 3 loads) |
 
 No view logged a console error.

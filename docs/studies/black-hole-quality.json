@@ -1,0 +1,106 @@
+[
+  {
+    "resolution": "full",
+    "frames": 1,
+    "turning": false,
+    "whole": {
+      "rmse": 4.21349475628099,
+      "ssim": 0.9729514138671406
+    },
+    "ring": {
+      "rmse": 11.655056719165948,
+      "ssim": 0.905792546426902
+    }
+  },
+  {
+    "resolution": "half",
+    "frames": 1,
+    "turning": false,
+    "whole": {
+      "rmse": 10.542934526912006,
+      "ssim": 0.914816133264119
+    },
+    "ring": {
+      "rmse": 15.050434479046764,
+      "ssim": 0.8620565999566955
+    }
+  },
+  {
+    "resolution": "half",
+    "frames": 8,
+    "turning": false,
+    "whole": {
+      "rmse": 10.133058304608662,
+      "ssim": 0.9223412603687348
+    },
+    "ring": {
+      "rmse": 12.32087292745746,
+      "ssim": 0.8964201381434453
+    }
+  },
+  {
+    "resolution": "half",
+    "frames": 32,
+    "turning": false,
+    "whole": {
+      "rmse": 9.937996435289023,
+      "ssim": 0.9195987369950259
+    },
+    "ring": {
+      "rmse": 10.981545693845863,
+      "ssim": 0.8920931196463574
+    }
+  },
+  {
+    "resolution": "quarter",
+    "frames": 1,
+    "turning": false,
+    "whole": {
+      "rmse": 22.03063868320724,
+      "ssim": 0.8065708892718431
+    },
+    "ring": {
+      "rmse": 22.096012763254134,
+      "ssim": 0.7687128424402025
+    }
+  },
+  {
+    "resolution": "quarter",
+    "frames": 32,
+    "turning": false,
+    "whole": {
+      "rmse": 21.57060547936326,
+      "ssim": 0.8117523470575754
+    },
+    "ring": {
+      "rmse": 17.335318394295808,
+      "ssim": 0.7830365184465674
+    }
+  },
+  {
+    "resolution": "half",
+    "frames": 240,
+    "turning": true,
+    "whole": {
+      "rmse": 9.617626588987646,
+      "ssim": 0.9312261048673758
+    },
+    "ring": {
+      "rmse": 11.662416310989407,
+      "ssim": 0.9190702414038497
+    }
+  },
+  {
+    "resolution": "quarter",
+    "frames": 240,
+    "turning": true,
+    "whole": {
+      "rmse": 21.301150947116515,
+      "ssim": 0.8139856499770006
+    },
+    "ring": {
+      "rmse": 18.008880113549306,
+      "ssim": 0.8099791834918632
+    }
+  }
+]

@@ -2,7 +2,13 @@ import { createFullscreenPipeline, renderFullscreen } from '../../gpu/fullscreen
 import { createHdrTail, TAIL_PARAMS } from '../../gpu/post/index.ts';
 import { DOSE_PARAMS, dosed } from '../../gpu/safety/dose.ts';
 import { createShader, withChunks } from '../../gpu/shader.ts';
-import { decodeCatalogue, precess, yearsSince2000 } from '../../gpu/stars/catalogue.ts';
+import {
+  decodeCatalogue,
+  precess,
+  precessPoint,
+  yearsSince2000,
+} from '../../gpu/stars/catalogue.ts';
+import { geocentric, magnitude, PLANET_COLOURS, type Planet } from '../../gpu/stars/planets.ts';
 import { visitorPlace } from '../../gpu/stars/place.ts';
 import { julianDate, localSiderealTime } from '../../gpu/stars/sky.ts';
 import { magnitudeLight, starColour } from '../../gpu/stars/stars.ts';
@@ -36,6 +42,16 @@ const Params = defineUniformStruct('Params', {
 
 /** Floats per star in the storage buffer: (ra, dec, light, seed), (r, g, b, unused). */
 const STAR_FLOATS = 8;
+/** The planets drawn among the stars (story 7.6): the five the eye can see, and the two it cannot. */
+const SKY_PLANETS: readonly Planet[] = [
+  'mercury',
+  'venus',
+  'mars',
+  'jupiter',
+  'saturn',
+  'uranus',
+  'neptune',
+];
 /** Light of a magnitude-0 star in scene units: as deep-field's, for the tonemap's toe. */
 const ZERO_MAGNITUDE_LIGHT = 40;
 /** The sky's glow at the zenith and at the horizon, linear: a dark site, with a little town glow. */
@@ -137,7 +153,10 @@ export const effect = defineEffect({
     const started = Date.now();
     const sky = decodeCatalogue();
     precess(sky, yearsSince2000(new Date(started)));
-    const data = new Float32Array(sky.count * STAR_FLOATS);
+    // The catalogue's stars, then the planets in the slots after them, moved every frame.
+    const data = new Float32Array((sky.count + SKY_PLANETS.length) * STAR_FLOATS);
+    const planets = new Float32Array(SKY_PLANETS.length * STAR_FLOATS);
+    const years = yearsSince2000(new Date(started));
     let saturation = NaN;
     const fill = () => {
       saturation = params.saturation;
@@ -232,6 +251,19 @@ export const effect = defineEffect({
         pass.setPipeline(starPipeline);
         pass.setBindGroup(0, starGroup);
         pass.draw(6, shown);
+        // The planets, where they are on the sky's date: Standish's elements, seen from Earth,
+        // precessed as the catalogue is. Planets fainter than the limit are left out with the stars.
+        const jd = julianDate(when);
+        SKY_PLANETS.forEach((planet, i) => {
+          const g = geocentric(planet, jd);
+          const [ra, dec] = precessPoint(g.ra, g.dec, years);
+          const m = magnitude(planet, jd);
+          const c = PLANET_COLOURS[planet];
+          const light = m <= params.limit ? ZERO_MAGNITUDE_LIGHT * magnitudeLight(m) : 0;
+          planets.set([ra, dec, light, 0, c[0], c[1], c[2], 1], i * STAR_FLOATS);
+        });
+        device.queue.writeBuffer(starBuffer, sky.count * STAR_FLOATS * 4, planets);
+        pass.draw(6, SKY_PLANETS.length, 0, sky.count);
         pass.end();
         tail.encode(encoder, target, time, params, profiler);
       },

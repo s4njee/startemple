@@ -61,7 +61,7 @@
     {
       "id": "real-sky",
       "title": "Real sky",
-      "summary": "The sky above you tonight: the 9 096 stars of the Yale Bright Star Catalogue where they are for your time zone's city at this moment, turning in a gentle time-lapse over a dark skyline. Each star's altitude comes from the sidereal time and your latitude on the GPU; low stars are dimmed by the air and twinkle harder and faster, and bright ones flash colours, as they do near the horizon.",
+      "summary": "The sky above you tonight: the 9 096 stars of the Yale Bright Star Catalogue where they are for your time zone's city at this moment, with the planets among them, turning in a gentle time-lapse over a dark skyline. Each star's altitude comes from the sidereal time and your latitude on the GPU; low stars are dimmed by the air and twinkle harder and faster, and bright ones flash colours, as they do near the horizon.",
       "epic": "2",
       "tier": "A",
       "tags": [
@@ -296,6 +296,96 @@
         "useCases": [
           "A science or space hero",
           "A \"data as a galaxy\" starting point"
+        ]
+      }
+    },
+    {
+      "id": "black-hole",
+      "title": "Black hole",
+      "summary": "A black hole with a glowing accretion disc, every ray traced through Schwarzschild's metric: the disc's far side bent up over the top and under the bottom, the thin photon ring, the shadow. The side of the disc coming towards you is Doppler-brightened and bluer, the inner edge dimmed by gravitational redshift, and the starfield behind is lensed round it, after the hole in Interstellar.",
+      "epic": "4",
+      "tier": "C",
+      "tags": [
+        "black hole",
+        "gravity",
+        "ray tracing",
+        "showpiece"
+      ],
+      "status": "demo",
+      "poster": "src/effects/black-hole/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "low",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the hole, or the thin-lens cursor.",
+        "useCases": [
+          "A science showpiece",
+          "A dramatic hero for a launch or a talk"
+        ]
+      }
+    },
+    {
+      "id": "lens-cursor",
+      "title": "Lens cursor",
+      "summary": "The pointer as a small black hole: a gravitational lens that bends whatever is behind it into an Einstein ring, with a second, flipped image inside, a black shadow and its faint photon ring. One pass, by the thin-lens equation, over a nebula the effect draws or an image the page hands over.",
+      "epic": "4",
+      "tier": "A",
+      "tags": [
+        "black hole",
+        "gravitational lens",
+        "cursor",
+        "interactive"
+      ],
+      "status": "ready",
+      "poster": "src/effects/lens-cursor/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "yes",
+        "features": {
+          "required": []
+        },
+        "fallback": "The picture behind, unlensed.",
+        "useCases": [
+          "A cursor for a science or space page",
+          "A hover over a hero image"
+        ]
+      }
+    },
+    {
+      "id": "orbits",
+      "title": "Orbits",
+      "summary": "The solar system today, from JPL's published orbital elements: every planet where it is on this date, moving at a few days a second along its orbit. Distances on a logarithmic scale, so Mercury and Neptune both fit, and scrolling the page zooms in on the inner planets.",
+      "epic": "4",
+      "tier": "A",
+      "tags": [
+        "solar system",
+        "planets",
+        "scroll",
+        "data"
+      ],
+      "status": "demo",
+      "poster": "src/effects/orbits/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the planets today.",
+        "useCases": [
+          "An astronomy or education page",
+          "A \"where are the planets now\" widget"
         ]
       }
     }

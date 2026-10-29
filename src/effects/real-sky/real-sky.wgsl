@@ -23,7 +23,7 @@ struct SkyStar {
   /// Right ascension and declination of the date, radians; light at magnitude 0 times 10^(−0.4 m);
   /// a seed for its flicker.
   at: vec4f,
-  /// Colour at luminance 1.
+  /// Colour at luminance 1; w is 1 for a planet, which does not twinkle (a disc, not a point).
   colour: vec4f,
 }
 
@@ -77,7 +77,7 @@ struct StarVarying {
   let x = sky_airmass(alt);
   var light = star.colour.rgb * star.at.z * params.gain * pow(10.0, -0.4 * params.extinction * (x - 1.0));
   // Scintillation: the flicker for this altitude, over its mean, so the star's average light holds.
-  if (params.twinkle > 0.0) {
+  if (params.twinkle > 0.0 && star.colour.w < 0.5) {
     let s = scintillation_settings(alt, params.twinkle, params.wind);
     let mean = 1.0 - (s.depth + s.shimmer) / 2.0;
     let seed = u32(star.at.w);

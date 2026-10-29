@@ -68,17 +68,21 @@ export function yearsSince2000(date: Date): number {
 
 /** Moves the catalogue's positions from J2000 to `years` later, in place (Meeus 21.1). */
 export function precess(sky: Catalogue, years: number): void {
+  for (let i = 0; i < sky.count; i++) {
+    const [ra, dec] = precessPoint(sky.ra[i]!, sky.dec[i]!, years);
+    sky.ra[i] = ra;
+    sky.dec[i] = dec;
+  }
+}
+
+/** One position moved from J2000 to `years` later (Meeus 21.1). */
+export function precessPoint(ra: number, dec: number, years: number): [number, number] {
   // Annual precession in right ascension (m, n) and declination (n), arcseconds.
   const m = (3.07496 + 0.00186 * (years / 100)) * 15;
   const n = (1.33621 - 0.00057 * (years / 100)) * 15;
   const arcsec = Math.PI / (180 * 3600);
-  for (let i = 0; i < sky.count; i++) {
-    const ra = sky.ra[i]!;
-    const dec = sky.dec[i]!;
-    // Near the poles tan(dec) runs away; the catalogue's closest star (Polaris, 89.3°) is fine.
-    const dRa = (m + n * Math.sin(ra) * Math.tan(dec)) * years * arcsec;
-    const dDec = n * Math.cos(ra) * years * arcsec;
-    sky.ra[i] = (ra + dRa + 2 * Math.PI) % (2 * Math.PI);
-    sky.dec[i] = dec + dDec;
-  }
+  // Near the poles tan(dec) runs away; the catalogue's closest star (Polaris, 89.3°) is fine.
+  const dRa = (m + n * Math.sin(ra) * Math.tan(dec)) * years * arcsec;
+  const dDec = n * Math.cos(ra) * years * arcsec;
+  return [(ra + dRa + 2 * Math.PI) % (2 * Math.PI), dec + dDec];
 }

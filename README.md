@@ -23,24 +23,27 @@ npm run deploy     # build and upload dist/ to Cloudflare Pages (project startem
 node scripts/pack-bsc5.mjs path/to/bsc5.dat   # repack the Bright Star Catalogue for real-sky
 ```
 
-`/deepfield.html` is a demo page with `deep-field` behind it in the Hubble palette, its nebula morphing and its colours cycling.
+`/deepfield.html` is a demo page with `deep-field` behind it in the Hubble palette, its nebula morphing and its colours cycling. `/blackhole.html` is one with `black-hole` behind it, rolled 45° so the disc runs up to the top right; the cursor flies the view round the hole.
 
 `?effect=<id>` opens an effect, `&hud=1` the performance HUD, and `&p.<param>=<value>` sets a parameter, `&p.dose=0.6` (intensity) included.
 
 ## Effects
 
-| Id                 | What                                                                                                             | Tier |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------- | ---- |
-| `hello`            | The smallest effect: a few hundred stars drifting slowly, each a naive fixed disc, one instanced draw            | A    |
-| `star-splat`       | The star spot laid out: colour by temperature, light by magnitude, Hubble and JWST spikes, over a drifting field | A    |
-| `deep-field`       | A starfield that never shimmers: four parallax layers from the sky's statistics over a baked emission nebula     | A    |
-| `star-trails`      | A long exposure facing the pole: every star's arc at the exposure's length, in closed form, over a skyline       | A    |
-| `real-sky`         | The sky above you tonight: the Bright Star Catalogue for your time zone's city, twinkling near the horizon       | A    |
-| `nebula`           | An emission nebula in three parallax layers, in its emission lines, with dust that hides the stars behind        | A    |
-| `nebula-volume`    | A ray-marched nebula turning slowly, lit by the hot stars inside it                                              | B    |
-| `spiral-galaxy`    | The density wave: stars on turning ellipses, arms that hold while the stars move through them                    | B    |
-| `galaxy-collision` | Two discs passing on a parabola, throwing tidal tails (Toomre and Toomre), in compute                            | A    |
-| `data-galaxy`      | A page's data as a galaxy, clusters as arms; hover picks a point and fires `sr-pick`                             | A    |
+| Id                 | What                                                                                                              | Tier |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------- | ---- |
+| `hello`            | The smallest effect: a few hundred stars drifting slowly, each a naive fixed disc, one instanced draw             | A    |
+| `star-splat`       | The star spot laid out: colour by temperature, light by magnitude, Hubble and JWST spikes, over a drifting field  | A    |
+| `deep-field`       | A starfield that never shimmers: four parallax layers from the sky's statistics over a baked emission nebula      | A    |
+| `star-trails`      | A long exposure facing the pole: every star's arc at the exposure's length, in closed form, over a skyline        | A    |
+| `real-sky`         | The sky above you tonight: the Bright Star Catalogue and the planets for your time zone's city, twinkling         | A    |
+| `nebula`           | An emission nebula in three parallax layers, in its emission lines, with dust that hides the stars behind         | A    |
+| `nebula-volume`    | A ray-marched nebula turning slowly, lit by the hot stars inside it                                               | B    |
+| `spiral-galaxy`    | The density wave: stars on turning ellipses, arms that hold while the stars move through them                     | B    |
+| `galaxy-collision` | Two discs passing on a parabola, throwing tidal tails (Toomre and Toomre), in compute                             | A    |
+| `data-galaxy`      | A page's data as a galaxy, clusters as arms; hover picks a point and fires `sr-pick`                              | A    |
+| `lens-cursor`      | The pointer as a small black hole: a thin gravitational lens over a nebula or the page's own image                | A    |
+| `black-hole`       | A Schwarzschild hole traced per pixel: the disc bent over the top, Doppler beaming, the photon ring, lensed stars | C    |
+| `orbits`           | The solar system today from JPL's elements, on a log scale the page scrolls through                               | A    |
 
 ## Layout
 

@@ -1,0 +1,84 @@
+@import '../backdrop/page.css';
+
+/*
+ * The "Event Horizon" page: the shared backdrop page (../backdrop/page.css) over a black hole. The
+ * accent is the disc's own amber, and a paler gold for the light bent over the top.
+ */
+
+:root {
+  --paper: #050403;
+  /* See-through, so the disc shows behind the cards; the text keeps a dark enough backing. */
+  --plate: #05040377;
+  --text: #f1ece4;
+  --muted: #b9afa2;
+  --faint: #807669;
+  --hue: #f0a050;
+  --hue-2: #f6d9a8;
+}
+
+.experiment-caption {
+  /* Relative, for the rule below; the shared layout's bottom offset would lift it into the intro. */
+  position: relative;
+  bottom: auto;
+  border-top: 0;
+}
+
+.experiment-caption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--hue-2), var(--hue), transparent);
+}
+
+.live-status i {
+  background: radial-gradient(circle, #000 0 45%, var(--hue) 50%, var(--hue-2));
+}
+
+h1 span:last-child {
+  color: var(--hue);
+}
+
+/* The cursor's part, said once under the description. */
+.hint {
+  max-width: 34em;
+  margin: 14px 0 0;
+  color: var(--hue-2);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Not without WebGPU, nor on a touch screen, which has no cursor to fly with. */
+body[data-state='fallback'] .hint {
+  display: none;
+}
+
+@media (hover: none) {
+  .hint {
+    display: none;
+  }
+}
+
+/* Without WebGPU: a still of the shadow, its ring and the disc across it, in CSS. */
+body[data-state='fallback'] {
+  background:
+    radial-gradient(
+      circle at 70% 42%,
+      #000 0 9vmin,
+      #f6d9a8 9.4vmin,
+      #f0a05066 11vmin,
+      transparent 16vmin
+    ),
+    linear-gradient(
+      135deg,
+      transparent 47%,
+      #f0a05055 49.5%,
+      #f6d9a888 50%,
+      #f0a05055 50.5%,
+      transparent 53%
+    ),
+    var(--paper);
+  background-attachment: fixed;
+}

@@ -31,7 +31,7 @@ Each effect starts from its mechanism, and the look follows.
 
 ## Non-goals
 
-- **A planetarium.** `real-sky` puts the bright stars where they are for the visitor's time and place. It ignores precession, nutation, aberration of starlight and refraction, which move a star by less than its spot at page scale. No deep-sky catalogue, no planets among the stars until 7.6.
+- **A planetarium.** `real-sky` puts the bright stars where they are for the visitor's time and place. It ignores precession, nutation, aberration of starlight and refraction, which move a star by less than its spot at page scale. No deep-sky catalogue; the planets are among the stars (7.6).
 - **Physically exact simulation.** The galaxy is a density-wave picture, not a self-gravitating disc; the Sun's granulation is cells, not magnetohydrodynamics. The notes cite the physics and claim no accuracy beyond what the effect shows.
 - **A spinning (Kerr) black hole.** It is a research spike (4.6), not a story. The Schwarzschild hole is what pages need.
 - **Photographs of space.** Everything is procedural or from a public catalogue. NASA imagery is mostly public domain and ESA and ESO's is CC BY, but an effect built on an image is a picture, not an effect. Catalogues are checked for licence when used (2.6).
@@ -97,6 +97,9 @@ These findings shape this plan, so they need not be rediscovered.
 - **A volume nebula is Tier B at half resolution.** 6.4 ms full, 2.1 half, 0.9 quarter at 48 steps on the M1 Max (3.4).
 - **Spinning discs count as whole-field rotation**, and set the collision's pace (3.6).
 - **Twinkling is the air's, and grows with airmass.** Overhead a star barely flickers; a few degrees up it swings by most of its light, faster, and bright ones flash colours (2.8).
+- **Behind a lens, a star must be a point in the image, not a spot in the sky.** Drawn a fixed angle wide in the sky, the lens shears each star into an arc, and round a black hole the arcs line up into rings that fail the pattern check. Taken back through the lens's local mapping (screen-space derivatives of the escaped direction) a star stays a point, brightened by its magnification (4.3).
+- **A black hole is Tier C even at half resolution.** 2.2 ms on the M1 Max's GPU at half, 6.0 in Chrome. Accumulation buys a little sharpness at the photon ring and nothing past 8 frames (4.4).
+- **A solar system needs no floating origin on a page.** Positions in doubles on the CPU, drawn in pixels about the Sun (4.5).
 
 ## Overlaps and who owns what
 
@@ -299,11 +302,26 @@ Stars are points, and getting points right is the whole problem. Everything late
 
 ## Epic 4 — Gravity and orbits
 
-- [ ] **4.1 `lens-cursor`** [A] (S) — the pointer as a small black hole: thin-lens gravitational distortion of content the effect draws (or an image the page hands over), bending it towards the pointer by 1/r with an Einstein ring at the right radius and a black shadow inside it. Works on any image, so it is the one gravity effect a page can drop in.
-- [ ] **4.2 Geodesic step** [—] (M) — `src/gpu/gravity/`: light rays integrated through the Schwarzschild metric in the compact Cartesian form, where each step adds an acceleration proportional to h²/r⁵ (Antonelli's "Starless"), with an adaptive step near the hole. Tested against the analytic deflection angle for a far ray and against the photon sphere at 1.5 Schwarzschild radii.
-- [ ] **4.3 `black-hole`** [C] (L) — 4.2 per pixel: rays that fall in are black, rays that cross the disc plane pick up the disc, and the rest sample 2.2's sky. The disc's temperature falls with radius; Doppler beaming brightens the side coming towards the viewer and gravitational redshift dims its inner edge. After James et al.'s _Interstellar_ paper. Tier C at full resolution.
-- [ ] **4.4 Half resolution and temporal accumulation** [—] (S) — research.md's second open question: can 4.3 reach Tier B at half resolution with temporal accumulation while it turns, and what does it lose at the photon ring?
-- [ ] **4.5 `orbits`** [B] (M) — the solar system from Standish's published Keplerian elements, accurate enough for any website, at today's date: orbit lines, planets as 2.1 points or 5.x bodies, and a logarithmic distance scale that the page scrolls through, so it is legible from the Sun to Neptune. Camera-relative positions and a floating origin from the start.
+- [x] **4.1 `lens-cursor`** [A] (S) — the pointer as a small black hole: thin-lens gravitational distortion of content the effect draws (or an image the page hands over), bending it towards the pointer by 1/r with an Einstein ring at the right radius and a black shadow inside it. Works on any image, so it is the one gravity effect a page can drop in.
+
+  _`lens-cursor`: the thin-lens equation β = θ(1 − θ_E²/|θ|²) at the eased pointer, sampling a nebula and stars baked once per size, or a page's own image through `image` (fetched, decoded with `createImageBitmap`, copied into an sRGB texture); a black shadow, a share of θ_E so it reads at cursor size, edged by a faint photon ring; it wanders on a slow Lissajous figure when the pointer is away. One pass and the tail: 0.09 ms on Dawn, 0.46 in Chrome. Tier A. 8.5 puts it over a page's hero_
+
+- [x] **4.2 Geodesic step** [—] (M) — `src/gpu/gravity/`: light rays integrated through the Schwarzschild metric in the compact Cartesian form, where each step adds an acceleration proportional to h²/r⁵ (Antonelli's "Starless"), with an adaptive step near the hole. Tested against the analytic deflection angle for a far ray and against the photon sphere at 1.5 Schwarzschild radii.
+
+  _`src/gpu/gravity/geodesic.wgsl` and its CPU twin `geodesic.ts`: −1.5 h² x / r⁵, fourth-order Runge–Kutta, a step of 0.08 (r − 0.9) clamped to 0.005 to 2. `tests/geodesic.test.ts`: the deflection of rays at b = 40 to 300 matches 2/b + (15π/16)/b² within 2%; rays inside 0.98 of the critical impact parameter 3√3/2 are captured and outside 1.02 escape; a ray at 1.0005 of it comes in to 1.5, the photon sphere_
+
+- [x] **4.3 `black-hole`** [C] (L) — 4.2 per pixel: rays that fall in are black, rays that cross the disc plane pick up the disc, and the rest sample 2.2's sky. The disc's temperature falls with radius; Doppler beaming brightens the side coming towards the viewer and gravitational redshift dims its inner edge. After James et al.'s _Interstellar_ paper. Tier C at full resolution.
+
+  _`black-hole`: 4.2 per pixel at half resolution, a disc between the innermost stable orbit and 14 with a Shakura–Sunyaev profile, Doppler beaming (g³) and gravitational redshift, passed through at 12% so the far side's bent image shows; the sky's stars drawn as points through the lens's local mapping (`dpdx` and `dpdy` of the escaped direction) and brightened by its magnification. 2.2 ms on Dawn at half resolution, 7.0 at full, 6.0 in Chrome at half: Tier C, as planned. The step budget does not matter past 200: every ray has escaped or fallen in by then. Drawing the stars a fixed angle wide in the sky had sheared them into arcs that lined up into rings round the hole, which failed the pattern check_
+
+- [x] **4.4 Half resolution and temporal accumulation** [—] (S) — research.md's second open question: can 4.3 reach Tier B at half resolution with temporal accumulation while it turns, and what does it lose at the photon ring?
+
+  _Against a full-resolution frame accumulated still for 64 frames, at 960 × 540 (`experiments/black-hole-quality.test.ts`): one full-resolution frame scores SSIM 0.97 over the frame and 0.91 round the photon ring; half resolution 0.91 and 0.86 in one frame, 0.92 and 0.89 after 8, no better after 32; quarter 0.81 and 0.78. Turning, against full resolution at the same moment, half resolution holds 0.93 and 0.92. So accumulation buys a little at the ring and nothing past 8 frames: what half resolution loses is sharpness, not noise. And it does not reach Tier B: 2.2 ms on the M1 Max's GPU is already 6 in Chrome, the B budget for an integrated GPU. Half resolution is the default, `full resolution` a preset_
+
+- [x] **4.5 `orbits`** [B] (M) — the solar system from Standish's published Keplerian elements, accurate enough for any website, at today's date: orbit lines, planets as 2.1 points or 5.x bodies, and a logarithmic distance scale that the page scrolls through, so it is legible from the Sun to Neptune. Camera-relative positions and a floating origin from the start.
+
+  _`orbits`: Standish's elements (`src/gpu/stars/planets.ts`, tested against Earth at J2000, the March equinox of 2000 and Jupiter's period), today's planets on a logarithmic scale from 0.2 to 35 AU, orbit lines as spots every 0.8 pixel rebuilt only when the view changes, scrolling the page zooming in to the inner planets. 0.5 ms on Dawn, 1.4 in Chrome: Tier A, where the story guessed B. Precision does not arise: positions are doubles on the CPU, drawn in pixels about the Sun, so no floating origin is needed. Planets are 2.1 spots; 5.x bodies would come with M4_
+
 - [ ] **4.6 Kerr spike** [—] (S, stretch) — the spinning hole's asymmetric shadow, once, to see what it costs. Not a story to ship.
 
 ## Epic 5 — Worlds
@@ -328,7 +346,9 @@ Stars are points, and getting points right is the whole problem. Everything late
 - [ ] **7.3 `warp`** [A] (M) — streaks along the direction of motion with relativistic aberration bunching the stars ahead and Doppler shift turning them blue ahead and red behind. Always gated, and only on a user action; under reduced motion a still frame or a slow cross-fade.
 - [ ] **7.4 Flight study** [—] (S) — research.md's fifth question: is warp acceptable at all as page decoration, or only behind a click? The zoom doublings a second of forward flight at each speed, from the effect's transform (Snow Temple 2.4), and the shortest warp transition that reads as one.
 - [ ] **7.5 Warp transition** [A] (S) — 7.3 as a route transition lasting under a second, after a click, with a cross-fade under reduced motion.
-- [ ] **7.6 Planets among the stars** [—] (S) — 4.5's planet positions in `real-sky`, so the bright "stars" that are planets are where they are tonight.
+- [x] **7.6 Planets among the stars** [—] (S) — 4.5's planet positions in `real-sky`, so the bright "stars" that are planets are where they are tonight.
+
+  _`real-sky`: Mercury to Neptune from 4.5's elements, geocentric right ascension and declination precessed to the date, magnitudes from distance and phase angle (Meeus 41, clamped at each planet's brightest), in the star buffer after the catalogue and drawn by the same pass in their own colours, without twinkling_
 
 ## Epic 8 — On the page
 
@@ -359,9 +379,9 @@ Stars are points, and getting points right is the whole problem. Everything late
 - **Shimmer at DPR 1.** Most of the development machine's screens are DPR 2. A star spot that is steady at DPR 2 may crawl at DPR 1, where a pixel is twice the size. 2.3 tests at DPR 1 by rendering at it, and 10.2 checks a real screen.
 - **The motion check and sparse stars.** A starfield is sparse, faint points: exactly what Snow Temple found block matching cannot see. Parallax and flight must be held to the caps from the effect's transform as well, and 2.2 needs both readings.
 - **Warp at all.** It may be that no ambient warp is acceptable, and the honest finding is "only after a click, and short". 7.4 is the experiment, and "don't" is an acceptable answer.
-- **Black-hole cost.** A geodesic trace per pixel is expensive. Is Tier C its honest place, and is 4.1's thin lens the version pages should use?
+- **Black-hole cost.** A geodesic trace per pixel is expensive. Is Tier C its honest place, and is 4.1's thin lens the version pages should use? _Answered: Tier C, even at half resolution (4.4); the thin lens is Tier A at 0.1 ms and is the drop-in._
 - **Catalogue weight.** The Bright Star Catalogue is about 9 000 records. Packed, it may be 50 to 100 kB gzipped. Does a real sky earn that over a procedural one? 2.6 measures it.
-- **Precision in `orbits`.** A solar system spans 4.5 × 10¹² m. Camera-relative rendering and a floating origin are planned, but the logarithmic scroll may still show jitter near a planet when the camera is far from the origin.
+- **Precision in `orbits`.** A solar system spans 4.5 × 10¹² m. Camera-relative rendering and a floating origin are planned, but the logarithmic scroll may still show jitter near a planet when the camera is far from the origin. _Answered: it does not arise for a 2D view worked out in doubles on the CPU (4.5); it would for a camera flying among the planets._
 - **Colours that are not real.** Space imagery is mostly false colour. The effects say which they show: what the eye would see, or a published palette.
 - **Accent.** Hydrogen-alpha red sits near Fire Temple's orange and The Hero's Journey's magenta. Check it in the holofx site's dropdown beside the other families before committing to it.
 

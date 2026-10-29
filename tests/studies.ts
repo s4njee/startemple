@@ -48,4 +48,12 @@ export const STUDY_SWEEPS: Readonly<Record<string, readonly StudyConfig[]>> = {
     ...sweep('spiral-galaxy', 'dose', [0.1, 0.35, 1]),
     ...sweep('galaxy-collision', 'dose', [0.35, 1]),
   ],
+  '4': [
+    // 4.3 and 4.4: the black hole's trace at each resolution, and as its step budget grows.
+    ...sweep('black-hole', 'resolution', ['full', 'half', 'quarter']),
+    ...sweep('black-hole', 'steps', [200, 400, 800]),
+    // 4.1: the lens's size; 4.5: the orbits zoomed in, where the lines are longest.
+    ...sweep('lens-cursor', 'size', [0.08, 0.3]),
+    ...sweep('orbits', 'reach', [2.2, 35]),
+  ],
 };
