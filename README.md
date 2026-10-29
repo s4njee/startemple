@@ -22,6 +22,8 @@ npm run posters -- --force   # fallback posters from held frames, as WebP
 npm run deploy     # build and upload dist/ to Cloudflare Pages (project startemple)
 ```
 
+`/deepfield.html` is a demo page with `deep-field` behind it in the Hubble palette, its nebula morphing and its colours cycling.
+
 `?effect=<id>` opens an effect, `&hud=1` the performance HUD, and `&p.<param>=<value>` sets a parameter, `&p.dose=0.6` (intensity) included.
 
 ## Effects

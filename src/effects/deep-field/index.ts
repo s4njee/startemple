@@ -1,3 +1,8 @@
+import {
+  flickerIntensity,
+  FLICKER_SAFE_MAX_RATE,
+  type FlickerSettings,
+} from '../../gpu/flicker.ts';
 import { createFullscreenPipeline, renderFullscreen } from '../../gpu/fullscreen.ts';
 import { PointList } from '../../gpu/points.ts';
 import { trackPointer, type PointerTracker } from '../../gpu/pointer.ts';
@@ -23,7 +28,19 @@ const Params = defineUniformStruct('Params', {
   dust: 'f32',
   oxygen: 'f32',
   palette: 'f32',
+  /** The morph's clock, noise units; `morph` is 1 while it flows. */
+  time: 'f32',
+  morph: 'f32',
+  /** The nebula's hue turn, radians, and its OKLCH chroma scale. */
+  hue: 'f32',
+  vivid: 'f32',
 });
+
+/** Noise units a second the nebula flows at a morph of 1: a slow churn, not a boil. */
+const MORPH_RATE = 0.06;
+/** The baked nebula's size as a share of the view: half when still, a third while it morphs. */
+const STILL_SCALE = 0.5;
+const MORPH_SCALE = 1 / 3;
 
 /** The most stars `dose` asks for; 60% of them at the default. */
 const MAX_STARS = 6000;
@@ -84,6 +101,35 @@ export const effect = defineEffect({
     oxygen: { type: 'number', default: 0.7, min: 0, max: 2, step: 0.05, label: 'oxygen (teal)' },
     palette: { type: 'select', default: 'natural', options: ['natural', 'hubble'] },
     seed: { type: 'number', default: 3, min: 0, max: 100, step: 1 },
+    morph: {
+      type: 'number',
+      default: 0,
+      min: 0,
+      max: 3,
+      step: 0.05,
+      label: 'nebula morph (re-bakes every frame)',
+    },
+    hue: { type: 'number', default: 0, min: -180, max: 180, step: 1, label: 'nebula hue (°)' },
+    // Stars in space hold still; twinkling is what the air does to them. Off by default.
+    twinkle: { type: 'number', default: 0, min: 0, max: 0.9, step: 0.01, label: 'twinkle' },
+    twinkleRate: {
+      type: 'number',
+      default: 2.5,
+      min: 0.5,
+      max: FLICKER_SAFE_MAX_RATE,
+      step: 0.1,
+      label: 'twinkle rate (knots/s)',
+    },
+    vivid: {
+      type: 'number',
+      default: 1,
+      min: 0,
+      max: 3,
+      step: 0.05,
+      label: 'nebula colour strength',
+    },
+    // Under The Hero's Journey's whole-field hue cap of half a turn a second, by a factor of three.
+    hueSpeed: { type: 'number', default: 0, min: 0, max: 60, step: 1, label: 'colour cycle (°/s)' },
     ...TAIL_PARAMS,
     bloom: { ...TAIL_PARAMS.bloom, default: 0 },
   },
@@ -92,6 +138,8 @@ export const effect = defineEffect({
     'stars only': { nebula: 0 },
     'hubble palette': { palette: 'hubble' },
     'dense and still': { dose: 0.6, drift: 0 },
+    'living hubble': { palette: 'hubble', morph: 1, hueSpeed: 12, vivid: 1.6, twinkle: 0.5 },
+    twinkling: { twinkle: 0.6 },
   },
 
   async create({ device, format, hdr, canvas, params, profiler }) {
@@ -137,6 +185,9 @@ export const effect = defineEffect({
     let width = 1;
     let height = 1;
     let clock = 0;
+    let morphClock = 0;
+    let hueClock = 0;
+    let twinkleClock = 0;
     // The parallax offset, eased, in view heights.
     const look = { x: 0, y: 0 };
 
@@ -149,6 +200,10 @@ export const effect = defineEffect({
       },
       frame(time, encoder, target) {
         clock += time.delta * params.drift * dosed(params.dose, 0, 1, 1.6);
+        morphClock += time.delta * params.morph * MORPH_RATE;
+        hueClock = (hueClock + time.delta * params.hueSpeed) % 360;
+        // The flicker signal repeats every 1024 s; its clock wraps there.
+        twinkleClock = (twinkleClock + time.delta) % 1024;
         if (params.saturation !== saturation) {
           saturation = params.saturation;
           colours = starColours(stars, saturation);
@@ -171,8 +226,11 @@ export const effect = defineEffect({
           y: depth * params.parallax * look.y,
         });
 
-        // The nebula: baked again only when its size or settings change.
+        // The nebula: baked again only when its size or settings change, or every frame while it
+        // morphs. The texture is remade when the view's size or the morph's resolution changes.
+        const morphing = params.morph > 0;
         const key = JSON.stringify([
+          morphing,
           width,
           height,
           params.nebula,
@@ -193,12 +251,17 @@ export const effect = defineEffect({
           dust: params.dust,
           oxygen: params.oxygen,
           palette: params.palette === 'hubble' ? 1 : 0,
+          time: morphClock,
+          morph: morphing ? 1 : 0,
+          hue: ((params.hue + hueClock) * Math.PI) / 180,
+          vivid: params.vivid,
         });
         uniforms.upload();
-        if (key !== bakedKey) {
+        const resized = key !== bakedKey;
+        if (resized) {
           bakedKey = key;
           baked?.destroy();
-          const scale = 0.5 * (1 + 2 * MARGIN);
+          const scale = (morphing ? MORPH_SCALE : STILL_SCALE) * (1 + 2 * MARGIN);
           baked = device.createTexture({
             label: 'deep-field nebula',
             size: [Math.max(1, Math.round(width * scale)), Math.max(1, Math.round(height * scale))],
@@ -213,7 +276,9 @@ export const effect = defineEffect({
               { binding: 2, resource: sampler },
             ],
           });
-          renderFullscreen(encoder, baked.createView(), bakePipeline, [bakeGroup], {
+        }
+        if (resized || morphing) {
+          renderFullscreen(encoder, baked!.createView(), bakePipeline, [bakeGroup], {
             timestampWrites: profiler.pass('nebula bake'),
           });
         }
@@ -224,6 +289,16 @@ export const effect = defineEffect({
         // The stars, layer by layer, each wrapping through the margin as it drifts.
         const shown = Math.round(dosed(params.dose, 0, 0.6, 1) * MAX_STARS);
         const span = 1 + 2 * MARGIN;
+        // Twinkle: each star's light times its own band-limited flicker signal (Fire Temple's
+        // construction, src/gpu/flicker.ts), divided by the signal's mean so the field's average
+        // light holds. Each signal is capped at three flashes a second, whatever its seed.
+        const twinkle: FlickerSettings = {
+          rate: params.twinkleRate,
+          depth: params.twinkle,
+          shimmer: params.twinkle > 0 ? 0.02 : 0,
+          shimmerRate: 12,
+        };
+        const twinkleMean = 1 - (twinkle.depth + twinkle.shimmer) / 2;
         list.clear();
         for (let i = 0; i < shown; i++) {
           const layer =
@@ -231,7 +306,8 @@ export const effect = defineEffect({
           const s = shift(layer.depth);
           const u = ((((stars.x[i]! * span - s.x) % span) + span) % span) - MARGIN;
           const v = ((((stars.y[i]! * span - s.y) % span) + span) % span) - MARGIN;
-          const light = ZERO_MAGNITUDE_LIGHT * magnitudeLight(stars.magnitude[i]! + layer.dimming);
+          let light = ZERO_MAGNITUDE_LIGHT * magnitudeLight(stars.magnitude[i]! + layer.dimming);
+          if (twinkle.depth > 0) light *= flickerIntensity(twinkleClock, i, twinkle) / twinkleMean;
           list.push(
             u * width,
             v * height,

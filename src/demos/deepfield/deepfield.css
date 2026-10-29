@@ -1,0 +1,55 @@
+@import '../backdrop/page.css';
+
+/*
+ * The "Galaxy Brain" page: the shared backdrop page (../backdrop/page.css) over a Hubble-palette
+ * nebula. The accent is the nebula's own gold and blue, turned by main.ts as the colours cycle.
+ */
+
+:root {
+  --paper: #04040a;
+  /* See-through, so the nebula shows behind the cards; the text keeps a dark enough backing. */
+  --plate: #04040a66;
+  --text: #ecebf4;
+  --muted: #aeacbf;
+  --faint: #77758c;
+  --hue: #e8a23e;
+  --hue-2: #5b8cf0;
+}
+
+/* The hero's caption rule and the toolbar's dot carry both of the palette's colours. */
+.experiment-caption {
+  /* Relative, for the rule below; the shared layout's bottom offset would lift it into the intro. */
+  position: relative;
+  bottom: auto;
+  border-top: 0;
+}
+
+.experiment-caption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--hue), var(--hue-2));
+}
+
+.live-status i {
+  background: linear-gradient(135deg, var(--hue), var(--hue-2));
+}
+
+h1 span:last-child {
+  color: var(--hue);
+}
+
+/* Without WebGPU: a still of the gold and blue gas and a few stars, in CSS. */
+body[data-state='fallback'] {
+  background:
+    radial-gradient(ellipse 40% 30% at 70% 30%, #3a78e040, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 62% 62%, #e0a23a38, transparent 70%),
+    radial-gradient(ellipse 25% 20% at 82% 70%, #b0306040, transparent 70%),
+    radial-gradient(circle at 20% 30%, #fff 0 0.15vh, transparent calc(0.15vh + 1px)),
+    radial-gradient(circle at 44% 72%, #fff 0 0.12vh, transparent calc(0.12vh + 1px)),
+    radial-gradient(circle at 88% 14%, #fff 0 0.18vh, transparent calc(0.18vh + 1px)), var(--paper);
+  background-attachment: fixed;
+}
