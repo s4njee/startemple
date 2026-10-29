@@ -12,18 +12,23 @@ The HUD time is not the number the cost studies report. It is one frame measured
 
 | Effect | Started | Animates | HUD at 1080p |
 | --- | ---: | --- | --- |
-| black-hole | 8 of 8 | yes | 60 fps, 6.02 ms (5.83 to 6.04 over 3 loads) |
-| data-galaxy | 8 of 8 | yes | 60 fps, 1.36 ms (1.23 to 1.36 over 3 loads) |
-| deep-field | 8 of 8 | yes | 60 fps, 0.61 ms (0.53 to 0.63 over 3 loads) |
-| galaxy-collision | 8 of 8 | yes | 60 fps, 2.38 ms (2.19 to 2.41 over 3 loads) |
-| hello | 8 of 8 | yes | 60 fps, 0.42 ms (0.36 to 0.43 over 3 loads) |
-| lens-cursor | 8 of 8 | yes | 60 fps, 0.46 ms (0.43 to 0.52 over 3 loads) |
-| nebula | 8 of 8 | yes | 60 fps, 0.73 ms (0.72 to 0.73 over 3 loads) |
-| nebula-volume | 8 of 8 | yes | 60 fps, 4.95 ms (4.76 to 5.26 over 3 loads) |
-| orbits | 8 of 8 | yes | 60 fps, 1.35 ms (1.33 to 1.37 over 3 loads) |
-| real-sky | 8 of 8 | yes | 60 fps, 2.13 ms (2.11 to 2.20 over 3 loads) |
-| spiral-galaxy | 8 of 8 | yes | 60 fps, 4.79 ms (4.70 to 4.80 over 3 loads) |
-| star-splat | 8 of 8 | yes | 60 fps, 0.57 ms (0.52 to 0.61 over 3 loads) |
-| star-trails | 8 of 8 | yes | 60 fps, 2.15 ms (2.08 to 2.19 over 3 loads) |
+| black-hole | 8 of 8 | yes | 60 fps, 5.54 ms (5.45 to 5.70 over 3 loads) |
+| data-galaxy | 8 of 8 | yes | 60 fps, 1.12 ms (1.02 to 1.14 over 3 loads) |
+| deep-field | 8 of 8 | yes | 60 fps, 0.47 ms (0.47 to 0.48 over 3 loads) |
+| eclipse | 8 of 8 | yes | 60 fps, 1.16 ms (1.00 to 1.19 over 3 loads) |
+| galaxy-collision | 8 of 8 | yes | 60 fps, 2.41 ms (2.19 to 2.43 over 3 loads) |
+| gas-giant | 8 of 8 | yes | 60 fps, 4.49 ms (4.15 to 5.22 over 3 loads) |
+| hello | 8 of 8 | yes | 60 fps, 0.33 ms (0.33 to 0.34 over 3 loads) |
+| lens-cursor | 8 of 8 | yes | 60 fps, 0.41 ms (0.33 to 0.68 over 3 loads) |
+| moon-phase | 8 of 8 | yes | 60 fps, 1.67 ms (1.65 to 1.77 over 3 loads) |
+| nebula | 8 of 8 | yes | 60 fps, 0.76 ms (0.72 to 0.78 over 3 loads) |
+| nebula-volume | 8 of 8 | yes | 60 fps, 5.47 ms (5.36 to 5.53 over 3 loads) |
+| orbits | 8 of 8 | yes | 60 fps, 1.25 ms (1.19 to 1.35 over 3 loads) |
+| planet | 8 of 8 | yes | 60 fps, 3.07 ms (3.07 to 3.12 over 3 loads) |
+| real-sky | 8 of 8 | yes | 60 fps, 1.90 ms (1.89 to 2.04 over 3 loads) |
+| solar-surface | 8 of 8 | yes | 60 fps, 4.12 ms (3.44 to 4.21 over 3 loads) |
+| spiral-galaxy | 8 of 8 | yes | 60 fps, 2.60 ms (2.53 to 3.17 over 3 loads) |
+| star-splat | 8 of 8 | yes | 60 fps, 0.77 ms (0.67 to 1.31 over 3 loads) |
+| star-trails | 8 of 8 | yes | 60 fps, 1.31 ms (1.23 to 1.55 over 3 loads) |
 
 No view logged a console error.

@@ -388,6 +388,158 @@
           "A \"where are the planets now\" widget"
         ]
       }
+    },
+    {
+      "id": "gas-giant",
+      "title": "Gas giant",
+      "summary": "Jupiter, Saturn or Neptune: belts and zones between alternating jets, their clouds carried along by the winds so they shear into streaks and curls, storms like the Great Red Spot that persist and drift with their bands, limb darkening, and Saturn's rings from their real optical depths, with the planet's shadow across them and theirs across it.",
+      "epic": "5",
+      "tier": "B",
+      "tags": [
+        "planet",
+        "jupiter",
+        "saturn",
+        "rings",
+        "flow"
+      ],
+      "status": "demo",
+      "poster": "src/effects/gas-giant/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "none",
+        "pattern": "low",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the planet.",
+        "useCases": [
+          "A hero for a science or space page",
+          "A slow, living backdrop behind a title"
+        ]
+      }
+    },
+    {
+      "id": "moon-phase",
+      "title": "Moon phase",
+      "summary": "The Moon as a progress indicator: its phase is the value, mapped so the lit area grows evenly, with a soft terminator a loader can sweep, craters the low sun picks out along it, Moon Temple's maria and Lommel-Seeliger face, and earthshine on the dark side, bluish and strongest in a thin crescent.",
+      "epic": "5",
+      "tier": "A",
+      "tags": [
+        "moon",
+        "loader",
+        "progress",
+        "phase"
+      ],
+      "status": "ready",
+      "poster": "src/effects/moon-phase/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "none",
+        "pattern": "none",
+        "lightPage": "underlay",
+        "features": {
+          "required": []
+        },
+        "fallback": "A half disc and a scaled ellipse in CSS, which draw the exact shape of the light; two offset circles do not.",
+        "useCases": [
+          "A loader or progress indicator",
+          "A date widget: tonight’s Moon"
+        ]
+      }
+    },
+    {
+      "id": "planet",
+      "title": "Planet",
+      "summary": "An Earthlike world from orbit, every pixel a ray: continents and mountains on a cube map with no seams, oceans that catch the sun, clouds with their shadows on the ground, city lights past the terminator, and blue air scattered at the limb and reddened at dusk. Scrolling the page turns it from day to night.",
+      "epic": "5",
+      "tier": "B",
+      "tags": [
+        "planet",
+        "atmosphere",
+        "scattering",
+        "scroll"
+      ],
+      "status": "demo",
+      "poster": "src/effects/planet/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "none",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the planet half lit.",
+        "useCases": [
+          "A hero for a space, climate or geography page that turns from day to night on scroll",
+          "A sky at sunset, from the same atmosphere, behind a landing page"
+        ]
+      }
+    },
+    {
+      "id": "eclipse",
+      "title": "Total eclipse",
+      "summary": "A total solar eclipse as a countdown: the Moon slides over the Sun, the last of the photosphere breaks into Baily's beads through the valleys on the Moon's limb, the diamond ring flares, and the corona, a millionth of the disc's brightness, comes out with the pink chromosphere and prominences as the eye's exposure follows the light.",
+      "epic": "6",
+      "tier": "A",
+      "tags": [
+        "sun",
+        "moon",
+        "eclipse",
+        "corona",
+        "countdown"
+      ],
+      "status": "demo",
+      "poster": "src/effects/eclipse/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "low",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of totality.",
+        "useCases": [
+          "A launch countdown to a date",
+          "A hero for an eclipse or astronomy page"
+        ]
+      }
+    },
+    {
+      "id": "solar-surface",
+      "title": "Solar surface",
+      "summary": "The Sun in white light: granulation as convection cells that rise and fade, sunspots with dark umbrae and filamentary penumbrae, faculae near the limb, and limb darkening from the physics, every pixel a blackbody at the temperature we see into there. Prominences and the corona beyond the limb, as a coronagraph would show them.",
+      "epic": "6",
+      "tier": "B",
+      "tags": [
+        "sun",
+        "granulation",
+        "sunspots",
+        "blackbody"
+      ],
+      "status": "demo",
+      "poster": "src/effects/solar-surface/poster.webp",
+      "scorecard": {
+        "compute": false,
+        "mobile": "untested",
+        "flash": "none",
+        "pattern": "none",
+        "lightPage": "no",
+        "features": {
+          "required": []
+        },
+        "fallback": "A still of the disc.",
+        "useCases": [
+          "A hero for a solar, energy or science page",
+          "A warm, slowly churning backdrop"
+        ]
+      }
     }
   ]
 }

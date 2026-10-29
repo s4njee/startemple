@@ -3,29 +3,39 @@ import type { EffectMeta, EffectModule } from './types.ts';
 import { meta as meta0 } from './black-hole/meta.ts';
 import { meta as meta1 } from './data-galaxy/meta.ts';
 import { meta as meta2 } from './deep-field/meta.ts';
-import { meta as meta3 } from './galaxy-collision/meta.ts';
-import { meta as meta4 } from './hello/meta.ts';
-import { meta as meta5 } from './lens-cursor/meta.ts';
-import { meta as meta6 } from './nebula/meta.ts';
-import { meta as meta7 } from './nebula-volume/meta.ts';
-import { meta as meta8 } from './orbits/meta.ts';
-import { meta as meta9 } from './real-sky/meta.ts';
-import { meta as meta10 } from './spiral-galaxy/meta.ts';
-import { meta as meta11 } from './star-splat/meta.ts';
-import { meta as meta12 } from './star-trails/meta.ts';
+import { meta as meta3 } from './eclipse/meta.ts';
+import { meta as meta4 } from './galaxy-collision/meta.ts';
+import { meta as meta5 } from './gas-giant/meta.ts';
+import { meta as meta6 } from './hello/meta.ts';
+import { meta as meta7 } from './lens-cursor/meta.ts';
+import { meta as meta8 } from './moon-phase/meta.ts';
+import { meta as meta9 } from './nebula/meta.ts';
+import { meta as meta10 } from './nebula-volume/meta.ts';
+import { meta as meta11 } from './orbits/meta.ts';
+import { meta as meta12 } from './planet/meta.ts';
+import { meta as meta13 } from './real-sky/meta.ts';
+import { meta as meta14 } from './solar-surface/meta.ts';
+import { meta as meta15 } from './spiral-galaxy/meta.ts';
+import { meta as meta16 } from './star-splat/meta.ts';
+import { meta as meta17 } from './star-trails/meta.ts';
 import poster0 from './black-hole/poster.webp?url';
 import poster1 from './data-galaxy/poster.webp?url';
 import poster2 from './deep-field/poster.webp?url';
-import poster3 from './galaxy-collision/poster.webp?url';
-import poster4 from './hello/poster.webp?url';
-import poster5 from './lens-cursor/poster.webp?url';
-import poster6 from './nebula/poster.webp?url';
-import poster7 from './nebula-volume/poster.webp?url';
-import poster8 from './orbits/poster.webp?url';
-import poster9 from './real-sky/poster.webp?url';
-import poster10 from './spiral-galaxy/poster.webp?url';
-import poster11 from './star-splat/poster.webp?url';
-import poster12 from './star-trails/poster.webp?url';
+import poster3 from './eclipse/poster.webp?url';
+import poster4 from './galaxy-collision/poster.webp?url';
+import poster5 from './gas-giant/poster.webp?url';
+import poster6 from './hello/poster.webp?url';
+import poster7 from './lens-cursor/poster.webp?url';
+import poster8 from './moon-phase/poster.webp?url';
+import poster9 from './nebula/poster.webp?url';
+import poster10 from './nebula-volume/poster.webp?url';
+import poster11 from './orbits/poster.webp?url';
+import poster12 from './planet/poster.webp?url';
+import poster13 from './real-sky/poster.webp?url';
+import poster14 from './solar-surface/poster.webp?url';
+import poster15 from './spiral-galaxy/poster.webp?url';
+import poster16 from './star-splat/poster.webp?url';
+import poster17 from './star-trails/poster.webp?url';
 
 export const metas: readonly EffectMeta[] = [
   meta0,
@@ -41,19 +51,29 @@ export const metas: readonly EffectMeta[] = [
   meta10,
   meta11,
   meta12,
+  meta13,
+  meta14,
+  meta15,
+  meta16,
+  meta17,
 ];
 
 export const loaders: Readonly<Record<string, () => Promise<EffectModule>>> = {
   'black-hole': () => import('./black-hole/index.ts').then((module) => module.effect),
   'data-galaxy': () => import('./data-galaxy/index.ts').then((module) => module.effect),
   'deep-field': () => import('./deep-field/index.ts').then((module) => module.effect),
+  eclipse: () => import('./eclipse/index.ts').then((module) => module.effect),
   'galaxy-collision': () => import('./galaxy-collision/index.ts').then((module) => module.effect),
+  'gas-giant': () => import('./gas-giant/index.ts').then((module) => module.effect),
   hello: () => import('./hello/index.ts').then((module) => module.effect),
   'lens-cursor': () => import('./lens-cursor/index.ts').then((module) => module.effect),
+  'moon-phase': () => import('./moon-phase/index.ts').then((module) => module.effect),
   nebula: () => import('./nebula/index.ts').then((module) => module.effect),
   'nebula-volume': () => import('./nebula-volume/index.ts').then((module) => module.effect),
   orbits: () => import('./orbits/index.ts').then((module) => module.effect),
+  planet: () => import('./planet/index.ts').then((module) => module.effect),
   'real-sky': () => import('./real-sky/index.ts').then((module) => module.effect),
+  'solar-surface': () => import('./solar-surface/index.ts').then((module) => module.effect),
   'spiral-galaxy': () => import('./spiral-galaxy/index.ts').then((module) => module.effect),
   'star-splat': () => import('./star-splat/index.ts').then((module) => module.effect),
   'star-trails': () => import('./star-trails/index.ts').then((module) => module.effect),
@@ -63,14 +83,19 @@ export const posters: Readonly<Record<string, string>> = {
   'black-hole': poster0,
   'data-galaxy': poster1,
   'deep-field': poster2,
-  'galaxy-collision': poster3,
-  hello: poster4,
-  'lens-cursor': poster5,
-  nebula: poster6,
-  'nebula-volume': poster7,
-  orbits: poster8,
-  'real-sky': poster9,
-  'spiral-galaxy': poster10,
-  'star-splat': poster11,
-  'star-trails': poster12,
+  eclipse: poster3,
+  'galaxy-collision': poster4,
+  'gas-giant': poster5,
+  hello: poster6,
+  'lens-cursor': poster7,
+  'moon-phase': poster8,
+  nebula: poster9,
+  'nebula-volume': poster10,
+  orbits: poster11,
+  planet: poster12,
+  'real-sky': poster13,
+  'solar-surface': poster14,
+  'spiral-galaxy': poster15,
+  'star-splat': poster16,
+  'star-trails': poster17,
 };

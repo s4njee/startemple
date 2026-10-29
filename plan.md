@@ -100,6 +100,12 @@ These findings shape this plan, so they need not be rediscovered.
 - **Behind a lens, a star must be a point in the image, not a spot in the sky.** Drawn a fixed angle wide in the sky, the lens shears each star into an arc, and round a black hole the arcs line up into rings that fail the pattern check. Taken back through the lens's local mapping (screen-space derivatives of the escaped direction) a star stays a point, brightened by its magnification (4.3).
 - **A black hole is Tier C even at half resolution.** 2.2 ms on the M1 Max's GPU at half, 6.0 in Chrome. Accumulation buys a little sharpness at the photon ring and nothing past 8 frames (4.4).
 - **A solar system needs no floating origin on a page.** Positions in doubles on the CPU, drawn in pixels about the Sun (4.5).
+- **Schüler's Chapman approximation is 14% low for a low sun.** Between about 2° and 20° above the horizon; √(πx/2)·erfcx(√(x/2)μ) with a three-constant erfcx is within 0.2% and no dearer (5.2).
+- **From orbit a closed-form atmosphere is as good as Hillaire's tables.** They differ only in the sun's transmittance, and 12 steps are a third of an 8-bit level from brute force. From the ground the sky-view table is the cheap sky, not the exact one (5.2).
+- **A planet with its air is one pass.** Full resolution with a 12-step march, 0.9 ms on Dawn and 3.1 in Chrome: Tier B, with room; the reference march is 17 ms (5.3).
+- **Advected noise needs two readings.** Carried by shear, one reading streaks into lines within a minute; two half a period apart, cross-faded, stay fresh (5.4).
+- **Limb darkening needs no coefficients.** The Eddington–Barbier temperature and the Planck curve give the profile and the reddening together (6.1).
+- **An eclipse is an exposure problem.** The corona is a millionth of the disc; drawn at its real brightness under an eye's exposure, the corona, the beads and the diamond ring all follow, and the corona must be exposed in the shader, since half-float cannot hold it beside the disc (6.3).
 
 ## Overlaps and who owns what
 
@@ -326,18 +332,43 @@ Stars are points, and getting points right is the whole problem. Everything late
 
 ## Epic 5 — Worlds
 
-- [ ] **5.1 Cube sphere** [—] (S) — `src/gpu/world/`: a planet's surface as a cube projected onto a sphere, so noise has no pole pinch, with height, ocean below a threshold and ice caps by latitude. Tested: no seam at the cube's edges.
-- [ ] **5.2 Atmosphere** [—] (M) — Rayleigh and Mie single scattering by a short analytic march, against Hillaire's lookup-table method, from orbit and from the ground. Built to be Light Temple's E5-S6 sky too, so the two families share one module.
-- [ ] **5.3 `planet`** [B] (M) — 5.1 and 5.2: terrain, an ocean with a sun glint, a cloud shell with its own shadows on the ground, and city lights fading in past the terminator. A planet that turns from day to night as the page scrolls.
-- [ ] **5.4 `gas-giant`** [B] (M) — noise advected along latitude bands at alternating speeds (Water Temple's flow advection), vortex storms that persist, and limb darkening.
-- [ ] **5.5 Rings** [—] (S) — a radial density profile with gaps, the planet's shadow on the rings and the rings' on the planet, and forward scattering when lit from behind. Used by 5.4.
-- [ ] **5.6 `moon-phase`** [A] (S) — the terminator with a soft edge and earthshine on the dark side, as a progress indicator or loader: the phase is the value. Compared with Moon Temple's `moon.wgsl` and a CSS two-circle version.
+- [x] **5.1 Cube sphere** [—] (S) — `src/gpu/world/`: a planet's surface as a cube projected onto a sphere, so noise has no pole pinch, with height, ocean below a threshold and ice caps by latitude. Tested: no seam at the cube's edges.
+
+  _`src/gpu/world/`: the GPU's own cube map, 512 texels a face, baked once from 3D noise at each texel's direction (continents, ridged mountains, moisture, clouds, city lights), so there is no pole and no seam to hide; the hardware filters across the edges. `tests/world.test.ts` checks the face order and orientation against WebGPU's, that one texel past every edge is the next face's edge texel, and on the GPU that the cube read within a texel of an edge or corner is no further from the field than in the middle of a face. Ice by latitude and height (`surfaceAt`). Gnomonic texels vary 5.2× in area from centre to corner; an equal-angle warp would even that out but cannot use the hardware's cube sampling_
+
+- [x] **5.2 Atmosphere** [—] (M) — Rayleigh and Mie single scattering by a short analytic march, against Hillaire's lookup-table method, from orbit and from the ground. Built to be Light Temple's E5-S6 sky too, so the two families share one module.
+
+  _`src/gpu/world/atmosphere.wgsl`, three methods for the sunlight at each step: the Chapman function in closed form, Hillaire's transmittance table (with his multiple-scattering and sky-view tables), and a brute-force second march. Schüler's Chapman approximation is 14% low 2° to 20° above the horizon; the asymptotic √(πx/2)·erfcx form with a fitted erfcx is within 0.2%. Against the reference at 960 × 540 (`experiments/atmosphere-quality.test.ts`): from orbit the closed form at 12 steps is 0.29 of an 8-bit level off, the same as the tables; from the ground it needs 24 steps (1.2 levels), and the sky-view table is 9–10 levels off (SSIM 0.97) for a third of the cost. Multiple scattering adds 9% from orbit and 39% to the noon sky. Ozone is left out of all three. Light Temple's E5-S6 can take the module as it is: it knows nothing of a camera_
+
+- [x] **5.3 `planet`** [B] (M) — 5.1 and 5.2: terrain, an ocean with a sun glint, a cloud shell with its own shadows on the ground, and city lights fading in past the terminator. A planet that turns from day to night as the page scrolls.
+
+  _`planet`: 5.1 and 5.2 per pixel from four planet radii; GGX glint on the sea, a cloud shell with its shadow cast along the sun, city lights past the terminator, the limb pixel covered by its share. `air thickness` stretches the air and thins it alike, so the sky's colour holds and the limb shows. Scrolling swings the sun 140°, day to night. 0.9 ms on Dawn, 3.1 in Chrome; the reference method 17 ms_
+
+- [x] **5.4 `gas-giant`** [B] (M) — noise advected along latitude bands at alternating speeds (Water Temple's flow advection), vortex storms that persist, and limb darkening.
+
+  _`gas-giant`: Jupiter, Saturn, Neptune. Bands between alternating jets, 3D noise on the sphere carried by the wind, read twice half a period apart and cross-faded (Water Temple's flow advection), warped where the shear is strongest; persistent storms turned as vortices; Minnaert limb darkening. 2.2 ms on Dawn, 4.5 in Chrome; 6.4 with the disc filling the frame_
+
+- [x] **5.5 Rings** [—] (S) — a radial density profile with gaps, the planet's shadow on the rings and the rings' on the planet, and forward scattering when lit from behind. Used by 5.4.
+
+  _`src/gpu/world/rings.ts`: Saturn's optical-depth profile (B dense, C and the Cassini Division thin, the A ring with the Encke and Keeler gaps, the F ring) with irregular ringlets, as a 1024-texel table; lit as a single-scattering slab from either side, ice scattering back and dust forwards, so lit from behind the B ring goes dark and the thin rings glow. Both shadows, and four samples across each pixel's footprint so the gaps do not alias. Tested: phase functions hold one unit of light, the slab never returns more than it was given, the shadows fall where they should_
+
+- [x] **5.6 `moon-phase`** [A] (S) — the terminator with a soft edge and earthshine on the dark side, as a progress indicator or loader: the phase is the value. Compared with Moon Temple's `moon.wgsl` and a CSS two-circle version.
+
+  _`moon-phase`: Moon Temple's Lommel-Seeliger face and maria (its `moon.wgsl` copied in), a soft terminator, craters, earthshine. Progress maps to the lit area, (1 − cos 2π·phase)/2, not to the angle, which would show 15% lit a quarter of the way through; the GPU's lit share is checked against it. In CSS a half disc and a half ellipse are exact; two offset circles get 8% or more of a quarter moon wrong. 0.5 ms, Tier A_
 
 ## Epic 6 — The Sun
 
-- [ ] **6.1 `solar-surface`** [B] (M) — moved from Fire Temple's 11.4: granulation as convection cells that rise and fade, sunspots with umbra and penumbra, and limb darkening to the edge of the disc, at the Sun's colour through the HDR tail.
-- [ ] **6.2 Corona and prominences** [—] (M) — emissive arcs along magnetic loops above the limb, and the corona as a radial, streaked glow. Used by 6.1 and 6.3.
-- [ ] **6.3 `eclipse`** [A] (M) — a total solar eclipse: the Moon's disc over 6.2's corona, the diamond ring and Baily's beads at second and third contact from the Moon's uneven limb. A launch countdown. The diamond ring is a flash: it is checked as one.
+- [x] **6.1 `solar-surface`** [B] (M) — moved from Fire Temple's 11.4: granulation as convection cells that rise and fade, sunspots with umbra and penumbra, and limb darkening to the edge of the disc, at the Sun's colour through the HDR tail.
+
+  _`solar-surface`: every pixel a blackbody at the Eddington–Barbier temperature T⁴ = ¾T_eff⁴(μ + ⅔), 6 100 K at the centre to 4 850 K at the limb, which is limb darkening to a third at 555 nm, redder, with no fitted coefficients. Granules as weighted 3D Worley cells whose seeds grow from and shrink to nothing, so nothing pops; spots with filamentary penumbrae; faculae; Snodgrass's differential rotation. 1.6 to 1.8 ms on Dawn, 4.1 in Chrome_
+
+- [x] **6.2 Corona and prominences** [—] (M) — emissive arcs along magnetic loops above the limb, and the corona as a radial, streaked glow. Used by 6.1 and 6.3.
+
+  _`src/gpu/sun/corona.wgsl`: Baumbach's K-corona profile, shaped into equatorial helmet streamers at minimum and all round at maximum, fine rays, polar plumes; a ragged chromosphere; prominences as arches of strands over a fainter sheet, pink from Hα, Hβ and He D3. Every brightness is relative to the disc's centre, a millionth for the corona. Early-outs by radius and angle took the eclipse from 2.3 to 0.5 ms_
+
+- [x] **6.3 `eclipse`** [A] (M) — a total solar eclipse: the Moon's disc over 6.2's corona, the diamond ring and Baily's beads at second and third contact from the Moon's uneven limb. A launch countdown. The diamond ring is a flash: it is checked as one.
+
+  _`eclipse`: everything at its real brightness times an eye's exposure, eased in log steps towards the inverse of the uncovered photosphere (slow to open, fast to close). The Moon's limb, its valleys three times their real depth, lets the photosphere through in Baily's beads; a bead at an exposure still set for totality, clamped and bloomed, is the diamond ring. Checked as a flash through both contacts at the default run and the fastest (`tests/sun.test.ts`): under the threshold. Held while running, it shows totality. 0.5 ms partial, 1.4 in totality on Dawn, 1.2 in Chrome. Stats give the countdown_
 
 ## Epic 7 — Small bodies and motion
 

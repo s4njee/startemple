@@ -29,21 +29,26 @@ node scripts/pack-bsc5.mjs path/to/bsc5.dat   # repack the Bright Star Catalogue
 
 ## Effects
 
-| Id                 | What                                                                                                              | Tier |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------- | ---- |
-| `hello`            | The smallest effect: a few hundred stars drifting slowly, each a naive fixed disc, one instanced draw             | A    |
-| `star-splat`       | The star spot laid out: colour by temperature, light by magnitude, Hubble and JWST spikes, over a drifting field  | A    |
-| `deep-field`       | A starfield that never shimmers: four parallax layers from the sky's statistics over a baked emission nebula      | A    |
-| `star-trails`      | A long exposure facing the pole: every star's arc at the exposure's length, in closed form, over a skyline        | A    |
-| `real-sky`         | The sky above you tonight: the Bright Star Catalogue and the planets for your time zone's city, twinkling         | A    |
-| `nebula`           | An emission nebula in three parallax layers, in its emission lines, with dust that hides the stars behind         | A    |
-| `nebula-volume`    | A ray-marched nebula turning slowly, lit by the hot stars inside it                                               | B    |
-| `spiral-galaxy`    | The density wave: stars on turning ellipses, arms that hold while the stars move through them                     | B    |
-| `galaxy-collision` | Two discs passing on a parabola, throwing tidal tails (Toomre and Toomre), in compute                             | A    |
-| `data-galaxy`      | A page's data as a galaxy, clusters as arms; hover picks a point and fires `sr-pick`                              | A    |
-| `lens-cursor`      | The pointer as a small black hole: a thin gravitational lens over a nebula or the page's own image                | A    |
-| `black-hole`       | A Schwarzschild hole traced per pixel: the disc bent over the top, Doppler beaming, the photon ring, lensed stars | C    |
-| `orbits`           | The solar system today from JPL's elements, on a log scale the page scrolls through                               | A    |
+| Id                 | What                                                                                                                                                       | Tier |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
+| `hello`            | The smallest effect: a few hundred stars drifting slowly, each a naive fixed disc, one instanced draw                                                      | A    |
+| `star-splat`       | The star spot laid out: colour by temperature, light by magnitude, Hubble and JWST spikes, over a drifting field                                           | A    |
+| `deep-field`       | A starfield that never shimmers: four parallax layers from the sky's statistics over a baked emission nebula                                               | A    |
+| `star-trails`      | A long exposure facing the pole: every star's arc at the exposure's length, in closed form, over a skyline                                                 | A    |
+| `real-sky`         | The sky above you tonight: the Bright Star Catalogue and the planets for your time zone's city, twinkling                                                  | A    |
+| `nebula`           | An emission nebula in three parallax layers, in its emission lines, with dust that hides the stars behind                                                  | A    |
+| `nebula-volume`    | A ray-marched nebula turning slowly, lit by the hot stars inside it                                                                                        | B    |
+| `spiral-galaxy`    | The density wave: stars on turning ellipses, arms that hold while the stars move through them                                                              | B    |
+| `galaxy-collision` | Two discs passing on a parabola, throwing tidal tails (Toomre and Toomre), in compute                                                                      | A    |
+| `data-galaxy`      | A page's data as a galaxy, clusters as arms; hover picks a point and fires `sr-pick`                                                                       | A    |
+| `lens-cursor`      | The pointer as a small black hole: a thin gravitational lens over a nebula or the page's own image                                                         | A    |
+| `black-hole`       | A Schwarzschild hole traced per pixel: the disc bent over the top, Doppler beaming, the photon ring, lensed stars                                          | C    |
+| `orbits`           | The solar system today from JPL's elements, on a log scale the page scrolls through                                                                        | A    |
+| `planet`           | An Earthlike world from orbit: a seamless cube-map surface, glinting seas, clouds and their shadows, city lights, scattered air; scroll turns day to night | B    |
+| `gas-giant`        | Jupiter, Saturn or Neptune: bands carried by alternating jets, persistent storms, Saturn's rings from their optical depths with both shadows               | B    |
+| `moon-phase`       | The Moon as a loader: progress as the lit area, a soft terminator, the maria, earthshine                                                                   | A    |
+| `solar-surface`    | The Sun in white light: granules that rise and fade, sunspots, limb darkening from Eddington–Barbier, prominences beyond the limb                          | B    |
+| `eclipse`          | A total eclipse as a countdown: Baily's beads, the diamond ring, the corona at its real brightness under an eye's exposure                                 | A    |
 
 ## Layout
 
@@ -58,9 +63,13 @@ src/gpu/nebula/             emission lines as the eye sees them, and the Hubble 
 src/gpu/volume/             Fire Temple's emission-absorption ray-march kernel (with src/wgsl/volume.wgsl)
 src/gpu/safety/             dose, the pattern analyser, motion estimate, colour caps and the start gate's rules
 src/gpu/colour/             OKLab and OKLCH, palettes, Display P3
+src/gpu/world/              a planet's cube-sphere surface, its atmosphere (closed form, Hillaire's tables, reference)
+                            and a ringed planet's rings
+src/gpu/sun/                the photosphere (Eddington–Barbier limb darkening, granulation), corona and prominences
 src/effects/<id>/           meta.ts, index.ts, shaders, notes.md, poster.webp
 docs/studies/               cost studies, the shimmer study, quads against a compute splat, a starfield five ways
-experiments/                the studies' drivers (shimmer, splat-cost, star-compare, support-probe)
+experiments/                the studies' drivers (shimmer, splat-cost, star-compare, support-probe, black-hole and
+                            atmosphere quality)
 ```
 
 ## License

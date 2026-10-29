@@ -1,0 +1,190 @@
+[
+  {
+    "view": "from orbit",
+    "method": "closed form",
+    "steps": 4,
+    "rmse": 2.197068314232475,
+    "ssim": 0.9979454575944082
+  },
+  {
+    "view": "from orbit",
+    "method": "closed form",
+    "steps": 8,
+    "rmse": 0.5522355438870862,
+    "ssim": 0.9997430959212783
+  },
+  {
+    "view": "from orbit",
+    "method": "closed form",
+    "steps": 12,
+    "rmse": 0.286154865334798,
+    "ssim": 0.9998594247986271
+  },
+  {
+    "view": "from orbit",
+    "method": "closed form",
+    "steps": 24,
+    "rmse": 0.1407700428646611,
+    "ssim": 0.9999147150178325
+  },
+  {
+    "view": "from orbit",
+    "method": "tables",
+    "steps": 8,
+    "rmse": 0.5506600498451419,
+    "ssim": 0.9997454663001387
+  },
+  {
+    "view": "from orbit",
+    "method": "tables",
+    "steps": 12,
+    "rmse": 0.28440621907285757,
+    "ssim": 0.9998612365549796
+  },
+  {
+    "view": "from orbit",
+    "method": "tables",
+    "multipleScattering": 1.093731541993672
+  },
+  {
+    "view": "dusk",
+    "method": "closed form",
+    "steps": 4,
+    "rmse": 1.2782765645784613,
+    "ssim": 0.9988053715939688
+  },
+  {
+    "view": "dusk",
+    "method": "closed form",
+    "steps": 8,
+    "rmse": 0.35974642820503805,
+    "ssim": 0.999844209927009
+  },
+  {
+    "view": "dusk",
+    "method": "closed form",
+    "steps": 12,
+    "rmse": 0.2077618436022918,
+    "ssim": 0.9999264157672549
+  },
+  {
+    "view": "dusk",
+    "method": "closed form",
+    "steps": 24,
+    "rmse": 0.10495317191886916,
+    "ssim": 0.9999670889428987
+  },
+  {
+    "view": "dusk",
+    "method": "tables",
+    "steps": 8,
+    "rmse": 0.3561225501427311,
+    "ssim": 0.9998480160069673
+  },
+  {
+    "view": "dusk",
+    "method": "tables",
+    "steps": 12,
+    "rmse": 0.20433919301484185,
+    "ssim": 0.9999286208544135
+  },
+  {
+    "view": "dusk",
+    "method": "tables",
+    "multipleScattering": 1.0910477477631155
+  },
+  {
+    "view": "sunset from the ground",
+    "method": "closed form",
+    "steps": 4,
+    "rmse": 16.637086558003563,
+    "ssim": 0.9980847909137713
+  },
+  {
+    "view": "sunset from the ground",
+    "method": "closed form",
+    "steps": 8,
+    "rmse": 7.737284862731898,
+    "ssim": 0.9988283105667822
+  },
+  {
+    "view": "sunset from the ground",
+    "method": "closed form",
+    "steps": 12,
+    "rmse": 4.420057964581683,
+    "ssim": 0.9992015986842485
+  },
+  {
+    "view": "sunset from the ground",
+    "method": "closed form",
+    "steps": 24,
+    "rmse": 1.2322700855278526,
+    "ssim": 0.9993801422300315
+  },
+  {
+    "view": "sunset from the ground",
+    "method": "tables",
+    "steps": 8,
+    "rmse": 10.4324385371927,
+    "ssim": 0.9675259891122163
+  },
+  {
+    "view": "sunset from the ground",
+    "method": "tables",
+    "steps": 12,
+    "rmse": 10.4324385371927,
+    "ssim": 0.9675259891122163
+  },
+  {
+    "view": "sunset from the ground",
+    "method": "tables",
+    "multipleScattering": 1.1004481446844305
+  },
+  {
+    "view": "noon from the ground",
+    "method": "closed form",
+    "steps": 4,
+    "rmse": 7.930112608230281,
+    "ssim": 0.997406170279201
+  },
+  {
+    "view": "noon from the ground",
+    "method": "closed form",
+    "steps": 8,
+    "rmse": 2.8615714985755667,
+    "ssim": 0.9992442427178521
+  },
+  {
+    "view": "noon from the ground",
+    "method": "closed form",
+    "steps": 12,
+    "rmse": 1.678107325191466,
+    "ssim": 0.9993648956618247
+  },
+  {
+    "view": "noon from the ground",
+    "method": "closed form",
+    "steps": 24,
+    "rmse": 0.5667111544962727,
+    "ssim": 0.9995020434152323
+  },
+  {
+    "view": "noon from the ground",
+    "method": "tables",
+    "steps": 8,
+    "rmse": 8.927193556459123,
+    "ssim": 0.9732285291241447
+  },
+  {
+    "view": "noon from the ground",
+    "method": "tables",
+    "steps": 12,
+    "rmse": 8.927193556459123,
+    "ssim": 0.9732285291241447
+  },
+  {
+    "view": "noon from the ground",
+    "method": "tables",
+    "multipleScattering": 1.3927329751872777
+  }
+]

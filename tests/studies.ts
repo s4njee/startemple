@@ -56,4 +56,20 @@ export const STUDY_SWEEPS: Readonly<Record<string, readonly StudyConfig[]>> = {
     ...sweep('lens-cursor', 'size', [0.08, 0.3]),
     ...sweep('orbits', 'reach', [2.2, 35]),
   ],
+  '5': [
+    // 5.2 and 5.3: the planet's atmosphere by each method, and the closed form as its steps grow.
+    ...sweep('planet', 'atmosphere', ['closed form', 'tables', 'reference']),
+    ...sweep('planet', 'steps', [4, 8, 24]),
+    ...sweep('planet', 'atmosphere', ['closed form', 'tables'], { view: 'ground' }),
+    // 5.4 and 5.5: the giant with and without its rings; 5.6: the moon's soft edge.
+    ...sweep('gas-giant', 'rings', ['off', 'on'], { world: 'saturn' }),
+    ...sweep('moon-phase', 'shading', ['soft terminator', 'moon temple']),
+  ],
+  '6': [
+    // 6.1: the granulation's cost as the cells get smaller; 6.2: the corona's share.
+    ...sweep('solar-surface', 'granules', [150, 600, 1200]),
+    ...sweep('solar-surface', 'beyond', [0]),
+    // 6.3: totality, the most of the corona and prominences.
+    ...sweep('eclipse', 'progress', [0.3, 0.5], { run: false }),
+  ],
 };
