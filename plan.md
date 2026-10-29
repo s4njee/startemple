@@ -185,8 +185,14 @@ Story format: `ID Title [tier] (size)`. Sizes: S ≈ a day or less, M ≈ a few 
 
   _`hello`: 900 instanced quads, 400 shown at the default, a pure function of index and time over a near-black sky. Brightness is the cube of a uniform draw, colour a crude warm-to-blue mix (2.1 brings the blackbody fit and magnitudes). 0.20 ms a frame on Dawn ([docs/studies/epic-1.md](docs/studies/epic-1.md)), 0.36 ms in Chrome (`npm run browser-check`, all eight views): Tier A. With the tail's bloom on at 0.3 Chrome read 2.20 ms, over the Tier A budget, so `hello` draws without bloom. Flash, pattern, motion and held-frame checks pass._
 
-- [ ] **1.3 Repository and CI** (S) — its own git repository and public GitHub remote, and the CI workflow on software Vulkan (lint, format, typecheck, tests, build), green once.
-- [ ] **1.4 Deploy** (S) — Cloudflare Pages project `startemple` (classic, created with `--force`), and an `npm run deploy` that builds, checks the bundle and uploads `dist`.
+- [x] **1.3 Repository and CI** (S) — its own git repository and public GitHub remote, and the CI workflow on software Vulkan (lint, format, typecheck, tests, build), green once.
+
+  _Public repository [`s4njee/startemple`](https://github.com/s4njee/startemple); CI green on its first run, on 3a95c60._
+
+- [x] **1.4 Deploy** (S) — Cloudflare Pages project `startemple` (classic, created with `--force`), and an `npm run deploy` that builds, checks the bundle and uploads `dist`.
+
+  _Live at <https://startemple.pages.dev>, deployed from 3a95c60._
+
 - [ ] **1.5 Posters, catalogue and the holofx site** (S) — posters from held frames, `catalogue.json`, and Star Temple in the holofx site's dropdown, lab and effect pages.
 
   _Posters (`hello`'s is 8.3 kB) and `catalogue.json` done. Still to do: the holofx site._
